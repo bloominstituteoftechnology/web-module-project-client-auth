@@ -1,0 +1,28 @@
+{
+  "name": "mp2",
+  "version": "1.0.0",
+  "description": "Topics:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsuemith/web-module-project-client-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gsuemith/web-module-project-client-auth/issues"
+  },
+  "homepage": "https://github.com/gsuemith/web-module-project-client-auth#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  }
+}
