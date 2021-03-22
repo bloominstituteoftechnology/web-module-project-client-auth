@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
-import { axiosWithAuth } from '../authorization/axiosWithAuth';
+import axios from 'axios'
 
 const Login = (props) => {
  const [credentials, setCredentials] = useState({
-   email: '', password: ''
+   username: '', password: ''
  });
 
   const login = e => {
     e.preventDefault();
     console.log(credentials)
-    axiosWithAuth().post('https://reqres.in/api/login', credentials)
+    axios.post('http://localhost:5000/api/login', credentials)
       .then(res => {
         console.log(res.data)
-        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('token', res.data.payload);
         props.history.push('/');
+      })
+      .catch(err => {
+        console.log(err)
       })
   }
 
@@ -27,12 +30,14 @@ const Login = (props) => {
     return (
       <div>
         <form onSubmit={login}>
+          <label>Username: </label>
           <input
             type="text"
-            name="email"
-            value={credentials.email}
+            name="username"
+            value={credentials.username}
             onChange={handleChange}
           />
+          <label>Password: </label>
           <input
             type="password"
             name="password"
