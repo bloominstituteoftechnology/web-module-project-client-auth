@@ -9,7 +9,7 @@ const initialFormValues = {
   }
 
 export default function FriendsForm(props) {
-    const {friends, setFriends} = props 
+    const {fetchMyFriendsList} = props 
     const [newFriend, setNewFriend] = useState(initialFormValues)
 
     const handleChange = (e)=>{
@@ -27,16 +27,15 @@ export default function FriendsForm(props) {
         axiosWithAuth()
         .post('http://localhost:5000/api/friends', addNewFriend)
         .then((resp)=>{
-            setFriends(...friends, resp.data)
-            
-        })
+        
+            fetchMyFriendsList();
+        },
+        console.log(newFriend))
     }
 
     return (
         <div>
-             {friends.map((friend)=>{
-                return (<h4>{friend.name}</h4>)
-            })}
+            
             <form onSubmit={addNewFriend}>
                 <input
                 placeholder="name"
