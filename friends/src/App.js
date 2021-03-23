@@ -3,16 +3,19 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
-import {FriendsListForm} from './components/FriendsListForm';
+import FriendsListForm from './components/FriendsListForm';
 
-
+import { axiosWithAuth } from './utils/axiosWithAuth';
 
 import './App.css';
 
 function App() {
 
-  const logout = () => {
 
+  //Delete local token not present.
+  const logout = () => {
+  //   axiosWithAuth()
+  //   .post('/')
   }
 
   return (
@@ -26,9 +29,9 @@ function App() {
               <li>
                 <Link to="/login">Login</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link onClick={logout}>Logout</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/friendsListForm">FriendsListForm</Link>
               </li>
@@ -37,8 +40,8 @@ function App() {
         </div>
         </header>
         <Switch>
-          {/* <PrivateRoute exact path='/protected' component={FriendsListForm} /> */}
-          <Route path="/friendsListForm" component={FriendsListForm} />
+          <PrivateRoute exact path='/protected' component={FriendsListForm} />
+          {/* <Route path="/friendsListForm" component={FriendsListForm} /> */}
           <Route path="/login" component={Login} />
           <Route component={Login} />
 

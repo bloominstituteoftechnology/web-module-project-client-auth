@@ -10,17 +10,48 @@ class Login extends React.Component{
     };
 
     handleChange = e => {
-
+        this.setState({
+            credientials: {
+                ...this.state.credientials,
+                [e.target.name]: e.target.value
+            }
+        });
     };
 
     login = e => {
+        e.preventDefault();
+        axios.post('http://localhost:5000/api/login', this.state.credientials)
+        .then(res => {
+            localStorage.setItem('token', res.data.payload)
+            this.props.history.push('./protected')
+        })
+        .catch(err => {
+            console.log(err)
+        })
 
     };
 
     render() {
         return (
         <div>
-            <h2>Login</h2>
+            <form onSubmit={this.login}>
+                <label htmlFor='username'>UserName: </label>
+                <input
+                  type='text'
+                  name='username'
+                  value={this.state.credientials.username}
+                  onChange={this.handleChange}
+                />
+
+                <label htmlFor='password'>Password: </label>
+                <input
+                  type='text'
+                  name='password'
+                  value={this.state.credientials.password}
+                  onChange={this.handleChange}
+                />
+                <button>Log on in!</button>
+            </form>
         </div>
         );
     };
