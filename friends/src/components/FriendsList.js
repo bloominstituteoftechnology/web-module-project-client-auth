@@ -2,13 +2,14 @@ import React from 'react';
 
 
 
-export const FriendsList = () => {
-
-
+export const FriendsList = (props) => {
+    const {friend} = props;
 
     return(
         <div>
-            FriendsList
+            <h3>Name: {friend.name}</h3>
+            <p>Age: {friend.age}</p>
+            <p>Email: {friend.email}</p>
         </div>
     );
 };

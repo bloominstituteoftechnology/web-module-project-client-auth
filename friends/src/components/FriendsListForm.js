@@ -16,7 +16,7 @@ import {FriendsList} from './FriendsList';
          axiosWithAuth()
          .get('/api/friends')
          .then(res => {
-             console.log(res);
+             this.setState({friends: res.data})
          })
          .catch(err => {
              console.log(err.response)
@@ -26,8 +26,17 @@ import {FriendsList} from './FriendsList';
     render(){
         return (
             <div>
-                FriendsListForm
-                <FriendsList />
+                <form>
+                    form
+                    
+                </form>
+                <div className='friendList'>
+                    {
+                        this.state.friends.map(friend => 
+                            <FriendsList key={friend.id} friend={friend} />
+                        )
+                    }
+                </div>
             </div>
         );
     }

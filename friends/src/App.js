@@ -33,7 +33,7 @@ function App() {
                 <Link onClick={logout}>Logout</Link>
               </li> */}
               <li>
-                <Link to="/friendsListForm">FriendsListForm</Link>
+                <Link to="/protected">FriendsListForm</Link>
               </li>
             </ul>
           </nav>
