@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
+import FriendsForm from '../Components/FriendsForm'
 
 export default function FriendsList() {
     const [friends, setFriends] = useState([])
@@ -27,9 +28,11 @@ export default function FriendsList() {
     return (
         <div>
             <h1>You're Logged in! Here are your friends:</h1>
-            {friends.map((friend)=>{
-                return (<h2>{friend.name}</h2>)
-            })}
+            
+           
+
+            <h1> Add A New Friend: </h1>
+            <FriendsForm friends={friends} setFriends={setFriends}/>
 
         </div>
     )
