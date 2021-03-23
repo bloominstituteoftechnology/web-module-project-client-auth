@@ -1,15 +1,41 @@
 import React from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import {Friend} from './Friend';
 
 
+ class FriendsList extends React.Component {
+     state = {
+         friends: []
+     };
 
-export const FriendsList = (props) => {
-    const {friend} = props;
+     componentDidMount() {
+         this.getData();
+     }
 
-    return(
-        <div>
-            <h3>Name: {friend.name}</h3>
-            <p>Age: {friend.age}</p>
-            <p>Email: {friend.email}</p>
-        </div>
-    );
+     getData = () => {
+         axiosWithAuth()
+         .get('/api/friends')
+         .then(res => {
+             this.setState({friends: res.data})
+         })
+         .catch(err => {
+             console.log(err.response)
+         })
+     }
+
+    render(){
+        return (
+            <div>
+                <div className='friend'>
+                    {
+                        this.state.friends.map(friend => 
+                            <Friend key={friend.id} friend={friend} />
+                        )
+                    }
+                </div>
+            </div>
+        );
+    }
 };
+
+export default FriendsList

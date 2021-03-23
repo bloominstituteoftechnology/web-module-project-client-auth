@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
-import FriendsListForm from './components/FriendsListForm';
+import FriendsList from './components/FriendsList';
 
 import { axiosWithAuth } from './utils/axiosWithAuth';
 
@@ -33,14 +33,14 @@ function App() {
                 <Link onClick={logout}>Logout</Link>
               </li> */}
               <li>
-                <Link to="/protected">FriendsListForm</Link>
+                <Link to="/protected">FriendsList</Link>
               </li>
             </ul>
           </nav>
         </div>
         </header>
         <Switch>
-          <PrivateRoute exact path='/protected' component={FriendsListForm} />
+          <PrivateRoute exact path='/protected' component={FriendsList} />
           {/* <Route path="/friendsListForm" component={FriendsListForm} /> */}
           <Route path="/login" component={Login} />
           <Route component={Login} />
