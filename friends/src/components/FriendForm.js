@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from './../utils/axiosWithAuth';
 
-const FriendForm = (props) => {
-const [errorMessage, setErrorMessage] = useState("")
-const [state, setState] = useState({
-    id: Date.now(),
+const initialValues = {
+  id: Date.now(),
     name:"",
     age:"",
-    email:"",
-  });
+    email:""
+}
+const FriendForm = (props) => {
+const [errorMessage, setErrorMessage] = useState("")
+const [state, setState] = useState(initialValues);
   const handleChange = e => {
         setState({
             ...state,
             [e.target.name]:e.target.value
-        });
-    }
+          });
+        }
+  
+  const formReset = () => {
+    setState(initialValues)
+  }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -32,8 +37,9 @@ const [state, setState] = useState({
               props.data()
               console.log(state)
             })
+          formReset()
         }
-    }
+  }
   return (
     <section className='friends-form'>
       <h2>Add Friend</h2>

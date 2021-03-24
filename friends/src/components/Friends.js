@@ -7,7 +7,8 @@ import FriendForm from './FriendForm';
 export default class Friends extends React.Component{
   state = {
     friends: [],
-    isLoading: false
+    isLoading: false,
+    isEditing: false
   };
   
   componentDidMount() {
@@ -33,8 +34,9 @@ export default class Friends extends React.Component{
       });
   }
   
-  editFriend = (id) => {
-    const friend = this.state.friends.find(fr => fr.id === id)
+  editFriend = (friendId) => {
+    this.setEditing(true)
+    const friend = this.state.friends.find(fr => fr.id === friendId)
     this.setState({...friend})
   }
  
@@ -71,7 +73,7 @@ export default class Friends extends React.Component{
               <h4>{friend.name}</h4>
               <p> {friend.age}</p>
               <p> {friend.email}</p>
-              <button onClick={() =>this.editFriend(friend.id)}>Edit</button>
+              <button onClick={() =>this.editFriend(friend)}>Edit</button>
               <button onClick={(e) => {
                 e.stopPropagation();
                 this.deleteFriend(friend)
