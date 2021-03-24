@@ -53,9 +53,9 @@ export default class Friends extends React.Component{
           :
           this.state.friends.map((friend) => (
             <div className='friends-list'key={friend.id}>
-              <h4>Friend: {friend.name}</h4>
-              <p>Age: {friend.age}</p>
-              <p>Email: {friend.email}</p>
+              <h4>{friend.name}</h4>
+              <p> {friend.age}</p>
+              <p> {friend.email}</p>
               <button>Edit</button>
             </div>
           ))
