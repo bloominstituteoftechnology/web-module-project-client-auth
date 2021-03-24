@@ -1,7 +1,10 @@
 
 import React, {useState} from 'react'
+import {useLocation} from 'react-router-dom'
 
 const AddFriend = (props) => {
+
+    const location= useLocation()
 
     const initialState= {
         name:'',
@@ -46,7 +49,7 @@ const AddFriend = (props) => {
                 value={values.email}
                 onChange={onChange}/>
 
-                <button>Add Friend</button>
+                <button>{location.pathname==='/friends'? 'Add Friend' : 'Save Changes'}</button>
 
             </form>
         </div>
