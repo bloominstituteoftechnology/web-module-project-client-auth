@@ -1,32 +1,45 @@
 import './App.css';
-import { Route, Link, Switch} from 'react-router-dom'
+import { Route, Switch} from 'react-router-dom'
 import Home from './components/Home'
 import Login from './components/Login'
 import {PrivateRoute} from './components/PrivateRoute'
 import Friends from './components/Friends'
+import Friend from './components/Friend'
+import {axiosWithAuth} from './utils/axiosWithAuth'
+import Nav from './components/Nav'
 
 function App() {
+
+
+
+  const logOut = () =>{
+
+    axiosWithAuth()
+      .post('/api/logout')
+      .then(res=>{
+
+        localStorage.removeItem('token')
+        window.location.href = '/'
+      
+      })
+      .catch(err => console.log(err))
+
+  }
   return (
     <div className="App">
 
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/login'>Login</Link>
-        {localStorage.getItem('token') && <Link to='/friends'>Friends</Link>}
-        
-
-      </nav>
+      <Nav logOut={logOut}/>
 
       <Switch>
-        <Route exact path = '/'>
-          <Home/>
-        </Route>
+        <Route exact path = '/' component={Home}/>
+          
+       
 
-        <Route exact path='/login'>
-          <Login/>
-        </Route>
+        <Route exact path='/login' component={Login}/>
+          
 
         <PrivateRoute exact path='/friends' component={Friends}/>
+        <Route path='/friends/:id' component={Friend}/>
 
 
         

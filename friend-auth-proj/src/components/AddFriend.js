@@ -19,6 +19,7 @@ const AddFriend = (props) => {
     const onSubmit = (e) => {
         e.preventDefault();
         props.submit(values)
+        setValues(initialState)
     }
     return(
         <div>

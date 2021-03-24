@@ -4,6 +4,7 @@ import axios from 'axios'
 
 const Login = (props) => {
 
+    console.log(props)
     const initialCreds={
         username:'',
         password:''
@@ -24,7 +25,8 @@ const Login = (props) => {
                 //console.log(res)
                 const token = res.data.payload
                 localStorage.setItem('token', token)
-                console.log(props.history)
+                //console.log(props.history)
+                window.location.href='/friends'
             })
             .catch(err=> console.log(err))
     }
