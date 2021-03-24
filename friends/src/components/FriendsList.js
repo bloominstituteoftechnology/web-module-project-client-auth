@@ -1,5 +1,7 @@
 import React from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+
+import FriendsListForm from './FriendsListForm'
 import {Friend} from './Friend';
 
 
@@ -8,9 +10,13 @@ import {Friend} from './Friend';
          friends: []
      };
 
-     componentDidMount() {
+     componentDidMount(state) {
          this.getData();
-     }
+     };
+
+     componentDidUpdate(state) {
+         this.getData(state);
+     };
 
      getData = () => {
          axiosWithAuth()
@@ -26,6 +32,8 @@ import {Friend} from './Friend';
     render(){
         return (
             <div>
+                <div className='friendsListForm Container'>
+                    <FriendsListForm  />                </div>
                 <div className='friend'>
                     {
                         this.state.friends.map(friend => 
