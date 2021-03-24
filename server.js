@@ -98,6 +98,13 @@ app.post('/api/friends', authenticator, (req, res) => {
   res.send(friends);
 });
 
+app.post("/api/logout", (req, res) => {
+  //remove token from database
+  res.status(200).json({
+    payload: token
+  });
+});
+
 app.put('/api/friends/:id', authenticator, (req, res) => {
   const { id } = req.params;
 
