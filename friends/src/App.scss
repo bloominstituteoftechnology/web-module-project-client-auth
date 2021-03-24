@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt|Roboto');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  padding-bottom: 3px;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 36px;
+  padding: 12px;
+  background-color:#204963;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+li {
+  list-style: none;
+  margin-right: 6px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  padding: 6px;
+  color: white;
+}
+
+.friends-form {
+  background-color: #061e2c;
+  color: white;
+  display: flex;
+  width: fit-content;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  padding: 24px 58px;
+  
+  button {
+    background-color: white;
+    border: 3px solid #26cc50;
+    padding: 2px 55px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    
+    &:hover {
+      background-color: #26cc50;
+    }
+  }
+}
+
+div.friends-list {
+  margin-top: 30px;
+  padding: 2px;
+  
+  button{
+    background-color: #8eb9a7;
+    border: none;
+    width: 7rem;
+    padding: 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 10px;
+    border: 2px solid #26cc50;
+  }
+}
+.login {
+  margin: 10px;
+
+  input {
+    margin: 5px;
+  }
+  button {
+    background-color: white;
+    border: 2px solid #061e2c;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    
+    &:hover {
+      background-color: #061e2c;
+      color: white;
+    }
+  }
+}
+
+.title-wrapper {
+  background-color: #d0c5bb;
+  padding: 24px 58px;
+  width: 539px;
+  margin: 0 auto;
+}
+
+.title {
+  background-color: #204963;
+  width: 300px;
+  padding: 6px;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.inner-wrapper {
+  background-color: #ffffff;
+  padding: 4px;
+}
+
+.top-title {
+  font-family: 'Prompt', sans-serif;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.62);
+  font-size: 32px;
+  background-color: #ea7158;
+  color: #ffffff;
+}
+
+.bottom-title {
+  font-family: 'Kaushan Script', cursive;
+  color: #204963;
+  font-size: 22px;
+}
+
+
+
