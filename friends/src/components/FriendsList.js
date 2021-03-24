@@ -10,12 +10,12 @@ import {Friend} from './Friend';
          friends: []
      };
 
-     componentDidMount(state) {
+     componentDidMount() {
          this.getData();
      };
 
-     componentDidUpdate(state) {
-         this.getData(state);
+     componentDidUpdate() {
+         this.getData();
      };
 
      getData = () => {
