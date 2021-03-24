@@ -34,7 +34,7 @@ import {Friend} from './Friend';
             <div>
                 <div className='friendsListForm Container'>
                     <FriendsListForm  />                </div>
-                <div className='friend'>
+                <div className='friendList'>
                     {
                         this.state.friends.map(friend => 
                             <Friend key={friend.id} friend={friend} />

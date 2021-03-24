@@ -21,7 +21,7 @@ export const Friend = (props) => {
     }
 
     return(
-        <div>
+        <div className='friend container'>
             <h3>Name: {friend.name}</h3>
             <p>Age: {friend.age}</p>
             <p>Email: {friend.email}</p>

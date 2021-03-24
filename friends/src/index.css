@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  background: whitesmoke;
+}
+
+input {
+  margin: 5px;
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+button{
+  margin: 5px;
+  padding: 5px;
+  background: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 3px 3px 1px gray;
+}
+
+.friendList{ 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.friend {
+  margin: 5px;
+  width: 30%;
+  border: 2px solid #282c34;
+  border-radius: 10px;
+}
+
+.formDiv {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #282c34;
+
+}
