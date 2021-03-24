@@ -25,6 +25,12 @@ const [state, setState] = useState({
           axiosWithAuth()
             .post('/api/friends', state)
             .then(res => {
+              setState(
+                res.data,
+                {id: Date.now()}
+              )
+              props.data()
+              console.log(state)
             })
         }
     }

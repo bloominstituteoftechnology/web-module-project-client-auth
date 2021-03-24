@@ -14,15 +14,15 @@ export default class Friends extends React.Component{
     this.getData();
   }
 
-  handleEdit = (id) => {
-    // e.preventDefault();
-    console.log( id)
+  //  componentDidUpdate() {
+  //   this.getData();
+  // }
 
-  }
   getData = () => {
     this.setState({
       isLoading: true
     })
+
     axiosWithAuth()
       .get('/api/friends')
       .then(res => {
@@ -40,19 +40,10 @@ export default class Friends extends React.Component{
       });
   }
 
-  postData = () => {
-    axiosWithAuth()
-      .post('/api/friends', this.state.friends)
-      .then(res => {
-        this.setState({
-          friends: res.data
-        })
-      })
-  }
   render() {
     return (
-      <div>
-        <FriendForm friend={this.state.friends}/>
+      <div >
+        <FriendForm friend={this.state.friends} data={this.getData }/>
       <div className='friends-list'>
         {this.state.isLoading ? 
           <div className="key spinner">
@@ -61,11 +52,11 @@ export default class Friends extends React.Component{
           </div>
           :
           this.state.friends.map((friend) => (
-            <div className='friends-list' key={friend.id}>
-              <p>{friend.name}</p>
-              <pre>{friend.age}</pre>
-              <pre>{friend.email}</pre>
-              <button onClick={this.handleEdit(friend.id)}>Edit</button>
+            <div className='friends-list'key={friend.id}>
+              <h4>Friend: {friend.name}</h4>
+              <p>Age: {friend.age}</p>
+              <p>Email: {friend.email}</p>
+              <button>Edit</button>
             </div>
           ))
         }

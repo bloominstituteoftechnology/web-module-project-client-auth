@@ -61,11 +61,14 @@ div.friends-list {
   padding: 2px;
   
   button{
-    background-color: #9fb5ac;
+    background-color: #8eb9a7;
     border: none;
-    padding: 5px 20px;
+    width: 7rem;
+    padding: 5px 0;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin: 10px;
+    border: 2px solid #26cc50;
   }
 }
 .login {
