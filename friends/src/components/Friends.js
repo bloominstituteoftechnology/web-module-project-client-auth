@@ -38,16 +38,19 @@ export default class Friends extends React.Component{
     this.setState({...friend})
   }
  
-  deleteFriend = (id) => {
-    axiosWithAuth
-      .delete(`/api/friends/${id}`)
+  deleteFriend = (friendId) => {
+    // console.log(friendId.id)
+    axiosWithAuth()
+      .delete(`/api/friends/${friendId.id}`, {params: {id: friendId}})
       .then(res => {
+        console.log(res.data)
         this.setState(
-          this.state.friends.filter(friend => friend.id !== id)        
+          this.state.friends.filter(friend => friend.id !== res.data)        
         )
+        this.getData()
       })
       .catch(err => {
-        console.log('error: ', err.response);
+        console.log('error: ', err.response, err.status);
     })
     
   }
@@ -69,7 +72,11 @@ export default class Friends extends React.Component{
               <p> {friend.age}</p>
               <p> {friend.email}</p>
               <button onClick={() =>this.editFriend(friend.id)}>Edit</button>
-              <button onClick={()=> this.deleteFriend(friend.id)}>Delete</button>
+              <button onClick={(e) => {
+                e.stopPropagation();
+                this.deleteFriend(friend)
+              }
+            }>Delete</button>
             </div>
           ))
         }
