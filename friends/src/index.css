@@ -18,6 +18,9 @@ body {
 
 input {
   margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid;
 }
 
 li{
@@ -32,9 +35,9 @@ a{
 button{
   margin: 5px;
   padding: 5px;
-  background: whitesmoke;
+  background: linear-gradient(45deg, whitesmoke 30%, rgb(209, 206, 206) 90%);
   border-radius: 5px;
-  box-shadow: 3px 3px 1px gray;
+  box-shadow: 3px 3px 1px rgb(65, 73, 95);
 }
 
 .friendList{ 
