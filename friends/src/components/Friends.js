@@ -14,10 +14,6 @@ export default class Friends extends React.Component{
     this.getData();
   }
 
-  //  componentDidUpdate() {
-  //   this.getData();
-  // }
-
   getData = () => {
     this.setState({
       isLoading: true
@@ -34,10 +30,26 @@ export default class Friends extends React.Component{
       })
       .catch(err => {
         console.log("error: ", err.response);
-        // this.setState({
-        //   isLoading: true
-        // })
       });
+  }
+  
+  editFriend = (id) => {
+    const friend = this.state.friends.find(fr => fr.id === id)
+    this.setState({...friend})
+  }
+ 
+  deleteFriend = (id) => {
+    axiosWithAuth
+      .delete(`/api/friends/${id}`)
+      .then(res => {
+        this.setState(
+          this.state.friends.filter(friend => friend.id !== id)        
+        )
+      })
+      .catch(err => {
+        console.log('error: ', err.response);
+    })
+    
   }
 
   render() {
@@ -56,7 +68,8 @@ export default class Friends extends React.Component{
               <h4>{friend.name}</h4>
               <p> {friend.age}</p>
               <p> {friend.email}</p>
-              <button>Edit</button>
+              <button onClick={() =>this.editFriend(friend.id)}>Edit</button>
+              <button onClick={()=> this.deleteFriend(friend.id)}>Delete</button>
             </div>
           ))
         }
