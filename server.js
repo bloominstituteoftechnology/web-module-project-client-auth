@@ -11,39 +11,39 @@ let nextId = 7;
 let friends = [
   {
     id: 1,
-    name: 'Rachel Green',
-    age: 30,
-    email: 'rachel@friends.com'
+    name: 'Saradomin',
+    role: 'Saradomin is the god of order and wisdom, and by many of his followers considered the god of good.',
+    color: 'Blue'
   },
   {
     id: 2,
-    name: 'Joey Tribbiani',
-    age: 34,
-    email: 'joey@friends.com'
+    name: 'Guthix',
+    role: 'Guthix is the god of balance and nature, rumoured to be the most powerful god known.',
+    color: 'Green'
   },
   {
     id: 3,
-    name: 'Chandler Bing',
-    age: 32,
-    email: 'chandler@friends.com'
+    name: 'Zamorak',
+    role: 'Zamorak is the god of chaos.',
+    color: 'Red'
   },
   {
     id: 4,
-    name: 'Ross Geller',
-    age: 32,
-    email: 'ross@friends.com'
+    name: 'Armadyl',
+    role: 'Armadyl is the god of justice and law, the patron god of the aviantese and the namesake of the legendary Staff of Armadyl.',
+    color: 'White'
   },
   {
     id: 5,
-    name: 'Monica Bing',
-    age: 31,
-    email: 'monica@friends.com'
+    name: 'Bandos',
+    role: 'Bandos is the god of war, and known to most of his followers as the Big High War God. ',
+    color: 'Brown'
   },
   {
     id: 6,
-    name: 'Phoebe Buffay-Hannigan',
-    age: 30,
-    email: 'phoebe@friends.com'
+    name: 'Zaros',
+    role: 'Zaros is an almost forgotten god associated with fate, control and darkness.',
+    color: 'purple'
   }
 ];
 
@@ -62,7 +62,7 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'Lambda School' && password === 'i<3Lambd4') {
+  if (username === 'ryan' && password === 'dill') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
