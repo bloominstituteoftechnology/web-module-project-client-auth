@@ -1,0 +1,77 @@
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url('http://www.runescape.com/img/global/page/background_simple3.jpg');
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+header {
+  text-align: center;
+}
+
+.logo {
+  width: 500px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  background-color: #08161f;
+  width: 500px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #13222b;
+  margin-left: 15%;
+  margin-right: 13%;
+}
+
+.flex h3 {
+  color: #efff00;
+  font-size: 1.6rem;
+}
+
+.flex input {
+  font-size: 1.2rem;
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+.flex button {
+  margin-left: 29%;
+  font-size: 1.4rem;
+  border: 5px solid #13222b;
+  background-color: #04080b;
+  color:#efff00;
+}
+
+.flex-container {
+  display: flex;
+  width: 100%;
+  height: 600px;
+  align-items: center;
+}
+
+.god-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.god {
+  border: 5px solid #13222b;
+  background-color: #08161f;
+  width: 500px;
+  text-align: center;
+  color: #efff00;
+}
