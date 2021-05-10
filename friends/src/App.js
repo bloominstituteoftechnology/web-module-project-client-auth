@@ -28,7 +28,7 @@ function App() {
             <Link onClick={logout}>Logout</Link>
           </li>
           <li>
-            <Link to="/protected">Protected Page</Link>
+            <Link to="/protected">Friends Page</Link>
           </li>
         </ul>
         <Switch>

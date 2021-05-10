@@ -4,7 +4,7 @@ import { AxiosWithAuth } from '../utils/AxiosWithAuth';
 
 class FriendsList extends React.Component {
   state = {
-    friendsList: []
+    friends: []
   };
 
   componentDidMount() {
@@ -17,19 +17,19 @@ class FriendsList extends React.Component {
     AxiosWithAuth().get("/data")
       .then(res => 
         console.log(res)
-        // this.setState({gasPrices: res.data.data})
+        //this.setState({friendsList: res.data.data})
         )
       .catch(err => console.log(err));
   };
 
   formatData = () => {
     const formattedData = [];
-    this.state.friendsList.forEach((price, index, arr) => {
-      if (price.location === 'US') {
+    this.state.friends.forEach((name, id, arr) => {
+      if (name === '') {
         formattedData.push({
-          id: index,
-          USPrice: price.price,
-          HawaiiPrice: arr[index + 1].price
+          id: id,
+          name: name.name,
+          age: arr[id + 1].name
         });
       }
     });
@@ -37,66 +37,29 @@ class FriendsList extends React.Component {
   };
 
   render() {
-    const friendsList = this.formatData();
+    const friends = this.formatData();
     return (
       <div className="gas-prices">
         <div className="title-wrapper">
-          <div className="title">
-            <div className="inner-wrapper">
-              <div className="top-title">Gas Comparison</div>
-              <div className="bottom-title">Continental US vs Hawaii</div>
-            </div>
-          </div>
+         
         </div>
-        <div className="key">
-          <div className="US-key" />
-          <p className="US-key-text">Continental US Prices</p>
-          <div className="Hawaii-key" />
-          <p className="Hawaii-key-text">Hawaii Prices</p>
-        </div>
-        {this.props.fetchingData && (
+        {this.props.isLoading && (
           <div className="key spinner">
             <Loader type="Puff" color="#204963" height="60" width="60" />
             <p>Loading Data</p>
           </div>
         )}
-        {friendsList.length > 0 && (
-          <div className="gas-wrapper">
+        {friends.length > 0 && (
+          <div className="friend-wrapper">
             <div className="columns">
-              <div className="months">
-                <div className="year">2006</div>
-                <div className="year">2007</div>
-                <div className="year">2008</div>
-                <div className="year">2009</div>
-                <div className="year">2010</div>
-                <div className="year">2011</div>
-                <div className="year">2012</div>
-              </div>
+              
               <div>
-                {friendsList.map(friend => (
+                {friends.map(friend => (
                   <div key={friend.id} className="friend-graph">
-                    <div className="date">
-                      <p>{friend.date}</p>
-                    </div>
-                    <div className="hawaii-graph">
-                      <div
-                        className="hawaii-line"
-                        style={{
-                          width: `${(Number(friend.HawaiiPrice) / 5) * 100}%`
-                        }}
-                      />
-                      <p>${friend.HawaiiPrice}</p>
-                    </div>
-                    <div className="us-graph">
-                      <div
-                        className="us-line"
-                        style={{
-                          width: `${(Number(friend.USPrice) / 5) * 100}%`
-                        }}
-                      >
-                        <p>${friend.USPrice}</p>
-                      </div>
-                    </div>
+                    <div className="age">
+                      <p>{friend.age}</p>
+            
+               </div>
                   </div>
                 ))}
               </div>
