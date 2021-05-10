@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react'
-// import Login from './components/Login'
+import Login from './components/Login'
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
@@ -13,11 +13,13 @@ const logout = () =>{
 }
 
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-       Login
-      </header>
+      <Link to='/login'> Login </Link>
+      
+    
     </div>
+    </Router>
   );
 }
 
