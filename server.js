@@ -62,7 +62,7 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'Lambda School' && password === 'i<3Lambd4') {
+  if (username === 'lambda' && password === 'school') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
@@ -74,13 +74,13 @@ app.post('/api/login', (req, res) => {
   }
 });
 
-app.get('/api/friends', authenticator, (req, res) => {
+app.get('/api/products', authenticator, (req, res) => {
   setTimeout(() => {
     res.send(friends);
   }, 1000);
 });
 
-app.get('/api/friends/:id', authenticator, (req, res) => {
+app.get('/api/products/:id', authenticator, (req, res) => {
   const friend = friends.find(f => f.id == req.params.id);
 
   if (friend) {
@@ -90,7 +90,7 @@ app.get('/api/friends/:id', authenticator, (req, res) => {
   }
 });
 
-app.post('/api/friends', authenticator, (req, res) => {
+app.post('/api/products', authenticator, (req, res) => {
   const friend = { id: getNextId(), ...req.body };
 
   friends = [...friends, friend];
@@ -98,7 +98,7 @@ app.post('/api/friends', authenticator, (req, res) => {
   res.send(friends);
 });
 
-app.put('/api/friends/:id', authenticator, (req, res) => {
+app.put('/api/products/:id', authenticator, (req, res) => {
   const { id } = req.params;
 
   const friendIndex = friends.findIndex(f => f.id == id);
@@ -117,7 +117,7 @@ app.put('/api/friends/:id', authenticator, (req, res) => {
   }
 });
 
-app.delete('/api/friends/:id', authenticator, (req, res) => {
+app.delete('/api/products/:id', authenticator, (req, res) => {
   const { id } = req.params;
 
   friends = friends.filter(f => f.id !== Number(id));
