@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
+// import { useHistory } from "react-router-dom";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
-const Login = () => {
+const Login = (props) => {
   const [credentials, setCredentials] = useState({
-    name: "",
+    username: "",
     password: "",
   });
-  // console.log(credentials);
+  console.log(credentials);
 
-  let history = useHistory();
+  // let history = useHistory();
 
   const handleChange = (e) => {
     setCredentials({
@@ -19,26 +18,26 @@ const Login = () => {
     });
   };
 
-  const login = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     // make a POST request with the username and password as the data body
     axiosWithAuth()
       .post("/api/login", credentials)
       .then((res) => {
         window.localStorage.setItem("token", JSON.stringify(res.data.payload));
-        console.log("happy path:", res.data);
-        // history.push("/protected");
+        console.log("happy path:", res.data.payload);
+        // props.history.push("/protected");
       })
       .catch((err) => {
-        console.log("sad path:", err);
+        console.log("sad path:", err.response);
       });
   };
   return (
     <div className="form-container">
-      <form action="submit" className="form" onSubmit={login}>
+      <form className="form" onSubmit={handleLogin}>
         <input
           type="text"
-          name="name"
+          name="username"
           placeholder="name"
           value={credentials.name}
           onChange={handleChange}
@@ -50,7 +49,7 @@ const Login = () => {
           value={credentials.password}
           onChange={handleChange}
         />
-        <button className="submit">Submit</button>
+        <button className="submit">Get Friends</button>
       </form>
     </div>
   );

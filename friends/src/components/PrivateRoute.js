@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import Friends from "../components/Friends";
 
 // render a Route component
 // take in all of the same props as a regular Route comp
@@ -15,7 +14,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       render={() => {
         if (window.localStorage.getItem("token")) {
           console.log("Token showed up");
-          return <Friends />;
+          return <Component />;
         } else {
           console.log("No token, player!");
           return <Redirect to="/login" />;

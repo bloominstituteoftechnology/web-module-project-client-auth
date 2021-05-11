@@ -1,49 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
-const Friends = () => {
+const newFriendObject = [
+  {
+    id: Date.now(),
+    username: "",
+    age: "",
+    email: "",
+  },
+];
+
+function Friends() {
   const [friends, setFriends] = useState([]);
+  const [friend, setfriend] = useState(newFriendObject);
 
-  // const getFriends = () => {
-  axiosWithAuth()
-    .get("/api/friends")
-    .then((res) => {
-      console.log(res.data);
-      setFriends({
-        ...friends,
-        [friends]: friends,
+  const getFriends = () => {
+    axiosWithAuth()
+      .get("/api/friends", {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setFriends(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response);
       });
-    })
-    .catch((err) => {
-      console.log();
-    });
-  // };
-
-  const formatFriends = () => {
-    const formattedFriends = [];
-    friends.forEach((friend, index) => {
-      formattedFriends.push({
-        id: index,
-        name: friend.name,
-        age: friend.age,
-        email: friend.email,
-      });
-    });
-    return formattedFriends;
   };
+
+  useEffect(() => {
+    getFriends();
+  }, []);
 
   return (
     <div className="friends-container">
       <ul className="friends-list">
         <li className="friends">
           {friends.map((friend) => {
-            return <p>{formatFriends()}</p>;
+            return newFriendObject;
           })}
         </li>
       </ul>
     </div>
   );
-};
+}
+
 export default Friends;
