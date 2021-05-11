@@ -33,7 +33,7 @@ export default function Header() {
             background: 'transparent'
           }}
         >
-          <img src={Adidas} alt='adidas-logo' style={{height: '50vh', margin: '0 auto'}}/>
+          <img src={Adidas} alt='adidas-logo' style={{height: '350px', margin: '0 auto'}}/>
         </div>
       </div>
     )
