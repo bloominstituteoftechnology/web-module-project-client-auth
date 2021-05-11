@@ -26,7 +26,7 @@ const Login = (props) => {
       .then((res) => {
         window.localStorage.setItem("token", JSON.stringify(res.data.payload));
         console.log("happy path:", res.data.payload);
-        // props.history.push("/protected");
+        props.history.push("/protected");
       })
       .catch((err) => {
         console.log("sad path:", err.response);
