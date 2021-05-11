@@ -26,7 +26,7 @@ h4, h6, footer p {
 }
 
 .wrapper {
-  width: 100vw;
+  max-width: 100vw;
   height: 95vh;
   background: radial-gradient(farthest-corner at 30vw 20vh, black 10%, #ff00c8 100%);
   position: relative;
@@ -171,7 +171,7 @@ h4, h6, footer p {
   height: 100vh;
   top: 0;
   left: 0;
-  background-image: url("/assets/adidasTwo.jpg");
+  background-image: url("/assets/adidasSix.jpg");
   background-size: cover;
   background-position: center center;
   position: absolute;

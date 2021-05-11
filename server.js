@@ -6,44 +6,88 @@ const app = express();
 const token =
   'esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ';
 
-let nextId = 7;
+let nextId = Date.now();
 
-let friends = [
+let products = [
   {
-    id: 1,
-    name: 'Rachel Green',
-    age: 30,
-    email: 'rachel@friends.com'
+    id: Date.now(),
+    name: 'Grey Logo Hoodie',
+    price: '75',
+    img_url: 'https://assets.codepen.io/4996277/shutterstock_1600756576.jpg',
+    description: 'All weather logo hoodie with front pouch pocket. All sizes available',
+    stock_cat: 'apparel',
+    season: "all-year",
+    region: "North America"
   },
   {
-    id: 2,
-    name: 'Joey Tribbiani',
-    age: 34,
-    email: 'joey@friends.com'
+    id: Date.now(),
+    name: 'Navy/ Salmon Old School Low',
+    price: '55',
+    img_url: 'https://assets.codepen.io/4996277/shutterstock_1488039656.jpg',
+    description: 'Salmon on navy low top old school shoe. Unisex. All sizes available 9/1/2021',
+    stock_cat: 'footwear',
+    season: "fall",
+    region: "North America"
   },
   {
-    id: 3,
-    name: 'Chandler Bing',
-    age: 32,
-    email: 'chandler@friends.com'
+    id: Date.now(),
+    name: 'Black/ Yellow Old School Low',
+    price: '60',
+    img_url: 'https://assets.codepen.io/4996277/shutterstock_1488039644.jpg',
+    description: 'Yellow on black low top old school shoe. Unisex. All sizes available 5/23/2021',
+    stock_cat: 'footwear',
+    season: "summer",
+    region: "North America"
   },
   {
-    id: 4,
-    name: 'Ross Geller',
-    age: 32,
-    email: 'ross@friends.com'
+    id: Date.now(),
+    name: 'Blackout Low Walker',
+    price: '70',
+    img_url: 'https://assets.codepen.io/4996277/adidasSix.jpg',
+    description: 'Classic black mesh walker. Unisex. All sizes available',
+    stock_cat: 'footwear',
+    season: "all-year",
+    region: "EU"
   },
   {
-    id: 5,
-    name: 'Monica Bing',
-    age: 31,
-    email: 'monica@friends.com'
+    id: Date.now(),
+    name: 'Old School Starter Set',
+    price: '175',
+    img_url: 'https://assets.codepen.io/4996277/shutterstock_1045931929.jpg',
+    description: 'Black track pants, old school logo tee, classic adidas shoes. Unisex. All sizes available',
+    stock_cat: 'sets',
+    season: "all-year",
+    region: "North America"
   },
   {
-    id: 6,
-    name: 'Phoebe Buffay-Hannigan',
-    age: 30,
-    email: 'phoebe@friends.com'
+    id: Date.now(),
+    name: 'Coral Trainers',
+    price: '85',
+    img_url: 'https://assets.codepen.io/4996277/shutterstock_1882399024.jpg',
+    description: "Coral mesh trainer. Women's. All sizes available",
+    stock_cat: 'footwear',
+    season: "spring",
+    region: "Asia/ Pacific"
+  },
+  {
+    id: Date.now(),
+    name: 'Breathable Workout Top',
+    price: '72',
+    img_url: 'https://assets.codepen.io/4996277/shutterstock_1916646449.jpg',
+    description: "Orange breathable workout top w/ long sleeves. Men's. All sizes available",
+    stock_cat: 'apparel',
+    season: "all-year",
+    region: "EU/ AU"
+  },
+  {
+    id: Date.now(),
+    name: 'Fusion Mid Shoe',
+    price: '115',
+    img_url: 'https://assets.codepen.io/4996277/shutterstock_1522124144.jpg',
+    description: "Black, Red, White leather mid-top shoe. Unisex. All sizes available 7/1/2021",
+    stock_cat: 'footwear',
+    season: "summer",
+    region: "North America"
   }
 ];
 
@@ -76,53 +120,53 @@ app.post('/api/login', (req, res) => {
 
 app.get('/api/products', authenticator, (req, res) => {
   setTimeout(() => {
-    res.send(friends);
+    res.send(products);
   }, 1000);
 });
 
 app.get('/api/products/:id', authenticator, (req, res) => {
-  const friend = friends.find(f => f.id == req.params.id);
+  const product = products.find(p => p.id == req.params.id);
 
-  if (friend) {
-    res.status(200).json(friend);
+  if (product) {
+    res.status(200).json(product);
   } else {
-    res.status(404).send({ msg: 'Friend not found' });
+    res.status(404).send({ msg: 'Product not found' });
   }
 });
 
 app.post('/api/products', authenticator, (req, res) => {
-  const friend = { id: getNextId(), ...req.body };
+  const product = { id: getNextId(), ...req.body };
 
-  friends = [...friends, friend];
+  products = [...products, product];
 
-  res.send(friends);
+  res.send(products);
 });
 
 app.put('/api/products/:id', authenticator, (req, res) => {
   const { id } = req.params;
 
-  const friendIndex = friends.findIndex(f => f.id == id);
+  const productIndex = products.findIndex(f => f.id == id);
 
-  if (friendIndex > -1) {
-    const friend = { ...friends[friendIndex], ...req.body };
+  if (productIndex > -1) {
+    const product = { ...products[productIndex], ...req.body };
 
-    friends = [
-      ...friends.slice(0, friendIndex),
-      friend,
-      ...friends.slice(friendIndex + 1)
+    products = [
+      ...products.slice(0, productIndex),
+      product,
+      ...products.slice(productIndex + 1)
     ];
-    res.send(friends);
+    res.send(products);
   } else {
-    res.status(404).send({ msg: 'Friend not found' });
+    res.status(404).send({ msg: 'Item not found' });
   }
 });
 
 app.delete('/api/products/:id', authenticator, (req, res) => {
   const { id } = req.params;
 
-  friends = friends.filter(f => f.id !== Number(id));
+  products = products.filter(p => p.id !== Number(id));
 
-  res.send(friends);
+  res.send(products);
 });
 
 function getNextId() {
