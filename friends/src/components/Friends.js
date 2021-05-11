@@ -6,17 +6,20 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 const Friends = () => {
   const [friends, setFriends] = useState([]);
 
-  const getFriends = () => {
-    axiosWithAuth()
-      .get("/api/friends")
-      .then((res) => {
-        console.log(res.data);
-        setFriends([res.data]);
-      })
-      .catch((err) => {
-        console.log();
+  // const getFriends = () => {
+  axiosWithAuth()
+    .get("/api/friends")
+    .then((res) => {
+      console.log(res.data);
+      setFriends({
+        ...friends,
+        [friends]: friends,
       });
-  };
+    })
+    .catch((err) => {
+      console.log();
+    });
+  // };
 
   const formatFriends = () => {
     const formattedFriends = [];
@@ -36,7 +39,7 @@ const Friends = () => {
       <ul className="friends-list">
         <li className="friends">
           {friends.map((friend) => {
-            return <p>{friend.name}</p>;
+            return <p>{formatFriends()}</p>;
           })}
         </li>
       </ul>

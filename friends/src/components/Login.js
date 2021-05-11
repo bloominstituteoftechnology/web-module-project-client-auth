@@ -1,4 +1,5 @@
-import React, { useState, useHistory } from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
@@ -7,9 +8,9 @@ const Login = () => {
     name: "",
     password: "",
   });
-  console.log(credentials);
+  // console.log(credentials);
 
-  // let history = useHistory();
+  let history = useHistory();
 
   const handleChange = (e) => {
     setCredentials({
@@ -39,14 +40,14 @@ const Login = () => {
           type="text"
           name="name"
           placeholder="name"
-          // value={}
+          value={credentials.name}
           onChange={handleChange}
         />
         <input
           type="password"
           name="password"
           placeholder="password"
-          // value={}
+          value={credentials.password}
           onChange={handleChange}
         />
         <button className="submit">Submit</button>
