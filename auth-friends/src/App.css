@@ -17,7 +17,7 @@ body {
   overflow-y: auto;
 }
 
-h4, h6 {
+h4, h6, footer p {
   font-family: "Knockout 94 A", "Knockout 94 B";
   font-style: normal;
   font-weight: 400;
@@ -269,4 +269,7 @@ h4, h6 {
 
 .logout {
   text-shadow: 0 0 1rem white;
+  background-image: url("/assets/adidasFour.jpg");
+  background-position: center center;
+  background-size: cover;
 }

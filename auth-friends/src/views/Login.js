@@ -25,7 +25,8 @@ export default function Login() {
       .then((res) => {
         console.log("resolved token value", res.data.payload);
         localStorage.setItem("authToken", res.data.payload);
-        history.push("/");
+        alert("Credentials accepted. Welcome to the adidas product portal")
+        history.push("/protected");
       })
       .catch((err) => {
         console.log("Login failed error: ", err);
