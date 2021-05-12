@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from "react";
-import Loader from "react-loader-spinner";
-import axios from "axios";
+// import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
 const newFriendObject = [];
 
+// const initialFriend = [
+//   {
+//     id: 1,
+//     username: "Joe",
+//     age: 24,
+//     email: "joe@lambdaschool.com",
+//   },
+// ];
 function Friends() {
-  const [friends, setFriends] = useState([]);
+  const [friends, setFriends] = useState(newFriendObject);
   const [newFriend, setNewFriend] = useState(newFriendObject);
+  const [loading, setLoading] = useState(true);
 
   const getFriends = () => {
     axiosWithAuth()
       .get("/api/friends", {
-        headers: {
-          authorization: localStorage.getItem("token"),
+        header: {
+          authorization: window.localStorage.getItem("token"),
+          // Authorization: JSON.stringify(window.localStorage.getItem("token")),
         },
       })
       .then((res) => {
@@ -21,7 +30,7 @@ function Friends() {
         setFriends(res.data);
       })
       .catch((err) => {
-        console.log(err.response);
+        console.log("Error:", err.response.statusText);
       });
   };
 
@@ -34,13 +43,19 @@ function Friends() {
       ...newFriend,
       [e.target.name]: e.target.value,
     });
+    console.log(newFriend);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/friends/:id", newFriend)
+      .post("/api/friends/", newFriend)
       .then((res) => {
-        console.log("new friend:", res.data);
+        console.log(res.data);
+        // setFriends({
+        //   ...friends,
+        //   newFriend,
+        // });
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -77,19 +92,29 @@ function Friends() {
         />
         <button className="submit">Add Friend</button>
       </form>
+
       <div className="friends-container">
         <ol className="friends-list">
-          <li className="friends">
-            {friends.map((friend) => {
-              return (
-                <div key={friend.id}>
-                  <h3>{friend.name}</h3>
-                  <p>{friend.age}</p>
-                  <p>{friend.email}</p>
-                </div>
-              );
-            })}
-          </li>
+          {friends.map((friend) => {
+            return (
+              <div key={friend.id}>
+                <h3>{friend.name}</h3>
+                <p>Age: {friend.age}</p>
+                <p>Email: {friend.email}</p>
+              </div>
+            );
+          })}
+        </ol>
+        <ol className="friends-list">
+          {loading === false ? (
+            <div key={newFriend.id}>
+              <h3>{newFriend.name}</h3>
+              <p>Age: {newFriend.age}</p>
+              <p>Email: {newFriend.email}</p>
+            </div>
+          ) : (
+            <p>Friends are loading...</p>
+          )}
         </ol>
       </div>
     </div>

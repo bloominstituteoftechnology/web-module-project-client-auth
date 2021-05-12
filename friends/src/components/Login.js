@@ -16,6 +16,7 @@ const Login = (props) => {
       ...credentials,
       [e.target.name]: e.target.value,
     });
+    // return credentials;
   };
 
   const handleLogin = (e) => {
@@ -33,25 +34,25 @@ const Login = (props) => {
       });
   };
   return (
-    <div className="form-container">
-      <form className="form" onSubmit={handleLogin}>
-        <input
-          type="text"
-          name="username"
-          placeholder="name"
-          value={credentials.name}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          value={credentials.password}
-          onChange={handleChange}
-        />
-        <button className="submit">Get Friends</button>
-      </form>
-    </div>
+    // <div className="form-container">
+    <form className="form" onSubmit={handleLogin}>
+      <input
+        type="text"
+        name="username"
+        placeholder="name"
+        value={credentials.username}
+        onChange={handleChange}
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="password"
+        value={credentials.password}
+        onChange={handleChange}
+      />
+      <button className="submit">Get Friends</button>
+    </form>
+    // </div>
   );
 };
 
