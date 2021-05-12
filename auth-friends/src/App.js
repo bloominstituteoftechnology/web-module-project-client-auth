@@ -23,7 +23,7 @@ function App() {
         <Route path="/home" component={Home}/>
         <Route path="/login" component={Login} />
         <Route path="/logout" component={Logout} />
-        <Route exact path='/add' component={AddProducts}/>
+        <Route exact path='/addProducts' component={AddProducts}/>
         <PrivateRoute exact path="/protected" component={Products} />
       </Switch>
       <Footer />

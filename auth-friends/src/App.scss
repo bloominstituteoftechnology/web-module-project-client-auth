@@ -259,6 +259,39 @@ h4, h6, footer p {
   position: relative;
 }
 
+.parallax-wrapper5 {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 20vh;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+.parallax-wrapper5::before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-image: url("/assets/adidasSeven.jpg");
+  background-size: cover;
+  background-position: center center;
+  position: absolute;
+  z-index: -1;
+  transform: translateZ(-1px) scale(2);
+}
+
+.regular-wrapper5 {
+  width: 100vw;
+  min-height: 100vh;
+  //background-image: url("/assets/streetFour.jpg");
+  background-color: #222;
+  background-size: cover;
+  background-position: center center;
+  z-index: 2;
+  position: relative;
+}
+
 .content {
   margin: 0 auto;
   padding: 25vh 0;
@@ -268,7 +301,7 @@ h4, h6, footer p {
   text-align: center;
 }
 
-.btn {
+.btn  {
   font-family: "Knockout 94 A", "Knockout 94 B";
   font-style: normal;
   font-weight: 400;
@@ -279,4 +312,16 @@ h4, h6, footer p {
   background-image: url('/assets/adidasFour.jpg');
   background-position: center center;
   background-size: cover;
+}
+
+.labels {
+  font-family: "Knockout 94 A", "Knockout 94 B";
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 3vh;
+  font-size: 1.25rem;
+}
+
+.options {
+  font-size: .8rem;
 }
