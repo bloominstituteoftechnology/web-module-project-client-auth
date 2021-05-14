@@ -12,13 +12,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Link to="login">Login</Link>
-        <Link to="friends">Friends</Link>
-        <Link to="newFriend">Add a friend</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/friends">Friends</Link>
+        <Link to="/newFriend">Add a friend</Link>
         <Logout />
         <Switch>
             <Route path="/login" component={Login}/>
-            <PrivateRoute path="/friends" component={Friends} />
+            <PrivateRoute exact path="/friends" component={Friends} />
             <PrivateRoute path="/newFriend" component={NewFriendForm} />
             <PrivateRoute path='/friends/:id' component={EditFriend} />
         </Switch>

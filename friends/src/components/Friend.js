@@ -7,7 +7,7 @@ function Friend (props) {
     const history = useHistory();
 
     const editFriend = () => {
-        history.push(`/friends/${id}`)
+        history.push(`/friends/${id}`, props.friend)
     }
     return (
         <div>
