@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Login = () => {
     const [isLoading, setIsLoading] = useState({
@@ -11,14 +12,14 @@ const Login = () => {
         }
     })
 
-    // if (isLoading) {
-    //     return (s
-            
-    //     )
-    // }
+    if (isLoading === true) {
+        return (
+            <h2>Loading...</h2>
+        )
+    }
 
-    handleChange = e => {
-        setCredentials({
+    const handleChange = e => {
+        setState({
           credentials: {
             ...state.credentials,
             [e.target.name]: e.target.value
@@ -26,24 +27,40 @@ const Login = () => {
         });
       };
 
+    const login = e => {
+    e.preventDefault();
+    axios
+        .post('http://localhost:5000/api/login', state.credentials)
+        .then(res => {
+        console.log(res)
+        })
+        .catch(err => {
+        console.log(err)
+        })
+    };
+
     return (
         <div>
-            <form>
+            <form onSubmit={login}>
                 <input
                     type="text"
-                    name="username">
-                    
-                </input>
+                    name="username"
+                    placeholder='Username'
+                    value={state.credentials.username}
+                    onChange={handleChange} 
+                    />
                 <input
                     type="text"
-                    name="password">
-                    
-                </input>
+                    name="password"
+                    placeholder='Password'
+                    value={state.credentials.password}
+                    onChange={handleChange} />
+                <button>
+                    Log in
+                </button>
             </form>
         </div>
     )
 }
 
 export default Login;
-
-// * The login function should save the returned token to localStorage. You can setup `isLoading` state in your Login component, and show a spinner on your form or in your button while the login request is happening.
