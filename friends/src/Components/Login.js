@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
+    const history = useHistory();
     const [isLoading, setIsLoading] = useState({
         isLoading: false
     })
@@ -32,7 +34,8 @@ const Login = () => {
     axios
         .post('http://localhost:5000/api/login', state.credentials)
         .then(res => {
-        console.log(res)
+            localStorage.setItem('token', res.data.payload);
+            history.push('/FriendsList')
         })
         .catch(err => {
         console.log(err)

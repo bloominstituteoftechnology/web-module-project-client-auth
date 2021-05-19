@@ -2,11 +2,19 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
+import PrivateRoute from './Components/PrivateRoute';
 import Login from './Components/Login'
 import FriendsList from './Components/FriendsList'
 
 function App() {
+  console.log(localStorage)
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  }
   return (
+  
     <div className="App">
       <Router>
         <Link to="/Login">
@@ -15,13 +23,15 @@ function App() {
         <Link to="/FriendsList">
           Friends List
         </Link>
+        <Link onClick={logout}>Logout</Link>
+
         <Switch>
           <Route path={'/Login'}>
               <Login />
           </Route>
-          <Route path={'/FriendsList'}>
+          <PrivateRoute path={'/FriendsList'}>
               <FriendsList />
-          </Route>
+          </PrivateRoute>
         </Switch>
       </Router>
     </div>
