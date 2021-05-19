@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+nav {
+  font-size: 1.3rem;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: aqua;
+}
