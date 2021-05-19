@@ -13,6 +13,7 @@ function App() {
     localStorage.removeItem("token");
     window.location.href = "/login";
   }
+  
   return (
     <div className="App">
       <Router>
@@ -22,8 +23,11 @@ function App() {
         <Link to="/FriendsList">
           Friends List
         </Link>
-        <Link onClick={logout}>Logout</Link>
+        <Link onClick={logout}>
+          Logout
+        </Link>
         {localStorage.getItem("token")?<Link to="/protected">Protected Page</Link>:<div>Please Log in</div>}
+        
 
         <Switch>
           <Route path={'/Login'}>
