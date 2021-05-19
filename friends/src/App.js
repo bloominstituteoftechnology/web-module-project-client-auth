@@ -14,7 +14,6 @@ function App() {
     window.location.href = "/login";
   }
   return (
-  
     <div className="App">
       <Router>
         <Link to="/Login">
@@ -24,12 +23,13 @@ function App() {
           Friends List
         </Link>
         <Link onClick={logout}>Logout</Link>
+        {localStorage.getItem("token")?<Link to="/protected">Protected Page</Link>:<div>Please Log in</div>}
 
         <Switch>
           <Route path={'/Login'}>
               <Login />
           </Route>
-          <PrivateRoute path={'/FriendsList'}>
+          <PrivateRoute exact path={'/protected'}>
               <FriendsList />
           </PrivateRoute>
         </Switch>
