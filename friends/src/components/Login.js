@@ -1,61 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router";
 import axios from "axios";
 
-class Login extends React.Component {
-  state = {
-    credentials: {
-      username: "lambda",
-      password: "school",
-    },
+const initialValues = { username: "Lambda School", password: "i<3Lambd4" };
+
+function Login() {
+  const { push } = useHistory();
+  const [formValues, setFormValues] = useState(initialValues);
+
+  const handleChanges = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  handleChange = (e) => {
-    this.setState({
-      credentials: {
-        ...this.state.credentials,
-        [e.target.name]: e.target.value,
-      },
-    });
-  };
-
-  login = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    //1. make an axios call on the localhost:5000/api/login
-    //2. pass in our username and password
-    //3. console.log the token that is returned.
-    //4. console.log the error if returned
     axios
-      .post("http://localhost:5000/api/login", this.state.credentials)
+      .post("http://localhost:5000/api/login", formValues)
       .then((res) => {
-        localStorage.setItem("token", res.data.payload);
-        this.props.history.push("/protected");
+        // set res.data.payload (token) to localStorage
+        // route user to the home page(/friends)
+        window.localStorage.setItem("token", res.data.payload);
+        push("/friends");
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.message);
       });
   };
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.login}>
-          <input
-            type="text"
-            name="username"
-            value={this.state.credentials.username}
-            onChange={this.handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            value={this.state.credentials.password}
-            onChange={this.handleChange}
-          />
-          <button>Log in</button>
-        </form>
-      </div>
-    );
-  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="username">Username </label>
+      <input
+        id="username"
+        name="username"
+        value={formValues.username}
+        onChange={handleChanges}
+      />
+      <label htmlFor="password">Password </label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        value={formValues.password}
+        onChange={handleChanges}
+      />
+      <button>Login</button>
+    </form>
+  );
 }
 
 export default Login;
