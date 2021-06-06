@@ -15,7 +15,7 @@ const logout = () => { localStorage.removeItem('token')
 return (
 <Router>
    <div className="App">
-      <h1>Friends</h1>
+      <h1>Your Friends</h1>
 <div className='link1'>
   <Link to='/login' component={login}>Login here</Link>
 </div>

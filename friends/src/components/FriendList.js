@@ -1,5 +1,5 @@
 import React from 'react'
-import AddFriend from './AddFriends'
+import AddFriends from './AddFriends'
 import {axiosWithAuth} from '../authorization/axiosAuth'
 import axios from 'axios'
 
@@ -11,7 +11,7 @@ state = {
 getFriends = () => {
 
     axiosWithAuth()
-    .get('/api/friends')
+    .get('/friends')
     .then( res => {
 console.log(res);
 
@@ -33,13 +33,13 @@ render(){
 return (
 <div>
 
-<AddFriend getFriends={this.getFriends} friends ={this.state.friends}/>
+<AddFriends getFriends={this.getFriends} friends ={this.state.friends}/>
 
 {this.state.friends.map((friend)=>{
 return(
     <div className = "friend-list">
         <p className = "name"> {friend.name}</p>
-        <div className = "info">
+        <div>
         <p className = "age"> Age: {friend.age}</p>
         <p className = "email"> Email: {friend.email}</p>
 </div>
