@@ -1,0 +1,14 @@
+.friend {
+    background-color: black;
+    color: rgb(252, 252, 252);
+    margin: 0 250px;
+    padding: 25px;
+}
+
+#name {
+    padding-top: 25px;
+}
+
+#email {
+    padding-bottom: 25px;
+} 

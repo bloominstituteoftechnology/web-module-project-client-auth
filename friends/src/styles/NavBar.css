@@ -1,0 +1,36 @@
+ /* Navigation Bar styling */
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    /* background: rgb(58, 58, 58); */
+}
+
+.left-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.link {
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-top: 25px;
+    padding: 0 25px;
+}
+
+.right-box {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin: 20px;
+    margin-left: 25px;
+}
+
+.button {
+    margin-left: 5vw;
+    /* padding-top: 100px; */
+}
