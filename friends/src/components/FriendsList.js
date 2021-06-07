@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-// import '../styles/Friend.css';
+import '../styles/Friend.css';
 
 class FriendsList extends Component {
 

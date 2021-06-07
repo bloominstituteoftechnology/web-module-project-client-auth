@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
+import '../styles/Home.css';
 class Home extends Component {
 
     state = {
@@ -39,7 +40,9 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h2>New Friend</h2>
+                <h2>New</h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Friends_logo.svg/300px-Friends_logo.svg.png" alt = '' />
+
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type='text'
