@@ -26,10 +26,13 @@ class Home extends Component {
         e.preventDefault();
         console.log(this.state.newFriend);
         const token = localStorage.getItem('token');
+
+        // bug here >>>>>
         Axios.post('http://localhost:5000/api/friends', this.state.newFriend, {
             headers: {
                 authorization: token,
             }
+
         }).then(res => {
             console.log(res);
         }).catch(err => {
@@ -41,8 +44,7 @@ class Home extends Component {
         return (
             <div>
                 <h2>New</h2>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Friends_logo.svg/300px-Friends_logo.svg.png" alt = '' />
-
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Friends_logo.svg/300px-Friends_logo.svg.png" alt='' />
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type='text'

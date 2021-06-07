@@ -15,7 +15,7 @@ class FriendsList extends Component {
 
     getData = () => {
         const token = localStorage.getItem('token');
-        Axios.get('http://localhost:3000/api/friends', {
+        Axios.get('http://localhost:5000/api/friends', {
             headers: {
                 authorization: token
             }

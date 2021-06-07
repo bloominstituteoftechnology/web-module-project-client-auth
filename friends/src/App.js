@@ -1,17 +1,16 @@
 import React from 'react';
-// import { useHistory } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 // import PrivateRoute from './utils.js/PrivateRoute';
-
+// import AddFriendForm from './components/AddFriendForm';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Home from './components/Home';
 import FriendsList from './components/FriendsList';
-// import AddFriendForm from './components/AddFriendForm';
+
 import './App.css';
 
 function App() {
-
   const logout = () => {
     localStorage.removeItem('token')
   };

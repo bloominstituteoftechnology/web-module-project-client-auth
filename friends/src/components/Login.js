@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 
 class Login extends Component {
 
@@ -11,21 +11,22 @@ class Login extends Component {
     };
 
     handleChange = (e) => {
-        const { name, value } = e.target;
         this.setState({
             credentials: {
-                ...this.state.credentials, [name]: value
+                ...this.state.credentials, 
+                [e.target.name]: e.target.value
             }
         });
     };
 
     handleSubmit = (e) => {
         e.preventDefault();
-        Axios.post('http://localhost:5000/api/login', this.state.credentials)
+        // using axios for post request 
+        axios.post('http://localhost:3000/api/login', this.state.credentials)
             .then(res => {
-                console.log(res);
                 localStorage.setItem('token', res.data.payload);
                 this.props.history.push('/protected');
+                console.log('token');
             })
             .catch(err => {
                 console.log(err);
