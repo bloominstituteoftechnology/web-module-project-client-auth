@@ -7,7 +7,7 @@ const NavBar = () => {
 
     return (
         <nav>
-            <div className='left'>
+            <div className='left-box'>
                 <NavLink className='link' to='/'>
                     <p>Home Page</p>
                 </NavLink>
@@ -15,10 +15,11 @@ const NavBar = () => {
                     <p>Friend List</p>
                 </NavLink>
             </div>
-            <div className='right'>
+            <div className='right-box'>
                 <NavLink className='button' to='/login'>
                     <button>Login</button>
                 </NavLink>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Friends_logo.svg/300px-Friends_logo.svg.png" />
             </div>
         </nav>
     )

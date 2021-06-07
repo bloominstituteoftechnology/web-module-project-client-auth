@@ -33,6 +33,7 @@ class FriendsList extends Component {
         return (
             <div>
                 <h2>Friends List</h2>
+                <h3>This Page is Protected!</h3>
                 {
                     this.state.friends.map(friend => {
                         return (

@@ -4,9 +4,10 @@
 nav {
     display: flex;
     flex-direction: row;
+    /* background: rgb(58, 58, 58); */
 }
 
-.left {
+.left-box {
     display: flex;
     flex-direction: row;
 }
@@ -20,10 +21,15 @@ nav {
     padding: 0 25px;
 }
 
-.right {
+.right-box {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
-    margin-top: 40px;
+    margin: 20px;
     margin-left: 25px;
+}
+
+.button {
+    margin-left: 5vw;
+    /* padding-top: 100px; */
 }

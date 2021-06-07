@@ -21,7 +21,7 @@ class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        Axios.post('http://localhost:3000/api/login', this.state.credentials)
+        Axios.post('http://localhost:5000/api/login', this.state.credentials)
             .then(res => {
                 console.log(res);
                 localStorage.setItem('token', res.data.payload);
