@@ -20,10 +20,10 @@ export default function Nav() {
           alt="adidas-logo"
           style={{ height: "10vh", margin: "auto 1vw" }}
         />
-        <h4 style={{ margin: "auto 0vw" }}>ADIDAS PRODUCT PORTAL</h4>
+        <h4 style={{ margin: "auto 0vw", fontSize:'1rem' }}>ADIDAS PRODUCT PORTAL</h4>
       </div>
       <div
-        className="d-flex flex-row"
+        className="d-flex flex-row flex-wrap"
         style={{ alignSelf: "end", margin: "auto 2vw" }}
       >
         {" "}
@@ -49,7 +49,7 @@ export default function Nav() {
           className="btn"
           style={{ color: "#666", margin: "0 1rem" }}
         >
-          Product Maintenance
+          ProdMaint
         </Link>
         <Link to="protected" className="btn" style={{ color: "#666" }}>
           Products

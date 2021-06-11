@@ -1,3 +1,4 @@
+const {v4 : uuidv4} = require('uuid')
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -6,7 +7,8 @@ const app = express();
 const token =
   "esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ";
 
-let nextId = Date.now();
+let nextId = 70888934;
+
 
 let products = [
   {

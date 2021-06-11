@@ -21,7 +21,7 @@ export default function Header() {
         <div className={"frame"}></div>
         <div className={"frame"}></div>
         <div
-          className={"content"}
+          className={"content d-flex justify-content-center"}
           style={{
             opacity: "0.6",
             height: "300vh",
@@ -33,7 +33,7 @@ export default function Header() {
             background: 'transparent'
           }}
         >
-          <img src={Adidas} alt='adidas-logo' style={{height: '350px', margin: '0 auto'}}/>
+          <img src={Adidas} alt='adidas-logo' style={{width: '400px',height: '275px',margin: '5vh auto'}}/>
         </div>
       </div>
     )

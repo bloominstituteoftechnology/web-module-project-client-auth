@@ -42,7 +42,7 @@ export default function AddProducts() {
           onSubmit={handleSubmit}
           className="d-flex flex-column justify-content-center, align-items-center"
           style={{
-            maxWidth: "60vw",
+            maxWidth: "65vw",
             margin: "30vh 0",
             alignSelf: "center",
             backgroundColor: "#444",
@@ -103,7 +103,7 @@ export default function AddProducts() {
             id="stock_cat"
             name="stock_cat"
             onChange={handleChange}
-            style={{ fontSize: "1.2rem" }}
+            style={{ fontSize: "1.2rem", maxWidth: '60vw' }}
           >
             <option>--</option>
             <option value="apparel" className="options">
@@ -132,7 +132,7 @@ export default function AddProducts() {
             id="season"
             name="season"
             onChange={handleChange}
-            style={{ fontSize: "1.2rem" }}
+            style={{ fontSize: "1.2rem", maxWidth: '60vw' }}
           >
             <option>--</option>
             <option value="spring" className="options">
@@ -158,7 +158,7 @@ export default function AddProducts() {
             id="region"
             name="region"
             onChange={handleChange}
-            style={{ fontSize: "1.2rem" }}
+            style={{ fontSize: "1.2rem", maxWidth: '60vw' }}
           >
             <option>--</option>
             <option value="North America" className="options">
