@@ -13,7 +13,7 @@ export default function Products() {
         console.log(products);
       })
       .catch((err) => console.log("product fetch failed: ", err));
-  }, []);
+  }, [products]);
   return (
     <div
       className="d-flex flex-row flex-wrap justify-content-center"
