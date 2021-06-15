@@ -71,4 +71,4 @@ Topics:
 * Expand the number of properties that you put on each friend object. Feel free to remove the dummy data on the server or modify it in any way.
 
 ## Submission Format
-* [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+* [x] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
