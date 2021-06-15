@@ -38,10 +38,10 @@ function App (props) {
           </li>
           <li>
             {/* <Link onClick={logout}>Logout</Link> */}
-            <Link>Logout</Link>
+            <Link to="/friends">Friends</Link>
           </li>
           <li>
-            <Link to="/friends">Friends</Link>
+            <Link>Logout</Link>
           </li>
         </ul>
         </header>
@@ -49,9 +49,9 @@ function App (props) {
         {/* <h3>Module Project - Authentication</h3> */}
         {/* <Login /> */}
         <Switch>
+          <PrivateRoute exact path="/friends" component={FriendList} />
           <Route path="/login" component={Login} />
           <Route component={Login} />
-          {/* <PrivateRoute exact path="/friends" component={FriendList} /> */}
         </Switch>
       </div>
     </Router>

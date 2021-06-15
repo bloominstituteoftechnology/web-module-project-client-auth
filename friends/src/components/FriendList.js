@@ -3,13 +3,14 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 class FriendList extends React.Component {
     state = {
-        friends: {
-            id: '',
-            name: '',
-            age: '',
-            email: '',
-        }
-    }
+        // friends: {
+        //     id: '',
+        //     name: '',
+        //     age: '',
+        //     email: '',
+        // }
+        friends: []
+    };
 
     componentDidMount() {
         this.getFriends();
@@ -19,9 +20,9 @@ class FriendList extends React.Component {
         axiosWithAuth()
             .get("/api/friends")
             .then(res => {
+                console.log("AXIOS FRIENDS GET: ", res.data)
                 this.setState({
                     ...this.state,
-                    // VERIFY PATH
                     friends: res.data
                 })
             })

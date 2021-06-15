@@ -21,14 +21,16 @@ class Login extends React.Component {
 
     login = e => {
         e.preventDefault();
-        // axios.post('http://localhost:5000/api/login', this.state.credentials)
-            // .then(res => {
-                // console.log(res)
-                // localStorage.setItem("token", res.data.payload);
-                // this.props.history.push('/protected');
-            // })
+        axios.post('http://localhost:5000/api/login', this.state.credentials)
+            .then(res => {
+                console.log("AXIOS - PUT RESPONSE: ", res)
+                localStorage.setItem("token", res.data.payload);
+                this.props.history.push('/friends');
+            })
 
-            // .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err);
+            })
     };
 
     render() {
