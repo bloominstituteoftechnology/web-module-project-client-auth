@@ -1,32 +1,52 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 class FriendForm extends React.Component {
     state = {
-        friend: {
-            id: '',
-            name: '',
-            age: '', 
-            email: ""
-        }
+        // friend: {
+        //     id: '',
+        //     name: '',
+        //     age: '', 
+        //     email: ''
+        // }
+        friend: []
     };
 
     handleChange = e => {
+
+        // const newFriendID = {
+        //     id: Date.now()
+        // }
+
         this.setState({
-            credentials: {
-                ...this.state.credentials,
-                [e.target.name]: e.target.value
+            friend: {
+                ...this.state.friend,
+                [e.target.name]: e.target.value,
+                id: Date.now()
             }
         });
+        // console.log(this.state)
     };
-
+    
     submit = e => {
         e.preventDefault();
+        axiosWithAuth()
+            .post('/api/friends', this.state.friend)
+            .then(res => {
+                console.log("AXIOS - FRIENDS PUT RESPONSE: ", res)
+                // localStorage.setItem("token", res.data.payload);
+                this.props.history.push('/friends');
+            })
+
+            .catch(err => {
+                console.log(err);
+            })
+
     };
 
     render () {
+        console.log(this.state)
         return (
-            <FriendForm>
                 <div>
                     <form onSubmit={this.submit}>
                         <div>
@@ -34,31 +54,30 @@ class FriendForm extends React.Component {
                             <input 
                                 type="text" 
                                 name="name" 
-                                placeholder="name"
+                                placeholder="Name"
                                 value={this.state.friend.name}
                                 onChange={this.handleChange}
                             />
                             <label>Age:</label>
                             <input 
-                            type="text" 
-                            name="age" 
-                            placeholder="Age"
-                            value={this.state.credentials.age}
-                            onChange={this.handleChange}
+                                type="age" 
+                                name="age" 
+                                placeholder="Age"
+                                value={this.state.friend.age}
+                                onChange={this.handleChange}
                             />
                             <label>Email:</label>
                             <input 
-                            type="text" 
-                            name="email" 
-                            placeholder="Email"
-                            value={this.state.credentials.email}
-                            onChange={this.handleChange}
+                                type="email" 
+                                name="email" 
+                                placeholder="Email"
+                                value={this.state.friend.email}
+                                onChange={this.handleChange}
                             />
                         </div>
-                        <button>Log In</button>
+                        <button>Add New Friend</button>
                     </form>
                 </div>
-            </FriendForm>
         );
     }
 }

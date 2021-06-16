@@ -11,21 +11,24 @@ import FriendForm from './components/FriendForm';
 import './App.css';
 
 function App (props) {
-  // const logout = () => {
-  //   const token = localStorage.getItem("token")
-  //   axiosWithAuth()
-  //     .post("/api/logout")
-  //     .then(res => {
-  //       localStorage.removeItem("token");
-  //       window.location.href = "/login";
-  //       this.setState({
-  //         isAuth: false
-  //       })
-  //     })
-  //     .catch(err=>{
-  //       console.log(err);
-  //     })
-  // };
+  const logout = () => {
+    console.log(localStorage)
+    const token = localStorage.getItem("token")
+    axiosWithAuth()
+      .post("http://localhost:5000")
+      .then(res => {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+        this.setState({
+          isAuth: false
+        })
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+  };
+
+  const isAuth = localStorage.getItem("token");
 
   return (
     <Router>
@@ -34,21 +37,25 @@ function App (props) {
         <h1>Module Project - Authentication</h1>
         <ul>
           <li>
+            {/* {!isAuth ? <Link to="/login">Login</Link> : <div></div>} */}
             <Link to="/login">Login</Link>
           </li>
           <li>
-            {/* <Link onClick={logout}>Logout</Link> */}
-            <Link to="/friends">Friends</Link>
+            {!isAuth ? <Link to="/friends">Friends</Link> : <div></div>}
           </li>
           <li>
-            <Link>Logout</Link>
+            {/* {!isAuth ? <Link to="/friends/form">Friends Form</Link> : <div></div>} */}
+            <Link to="/friends/form">Friends Form</Link>
+          </li>
+          <li>
+            <Link onClick={logout}>Logout</Link>
+            {/* <Link>Logout</Link> */}
           </li>
         </ul>
         </header>
 
-        {/* <h3>Module Project - Authentication</h3> */}
-        {/* <Login /> */}
         <Switch>
+          <PrivateRoute exact path="/friends/form" component={FriendForm} />
           <PrivateRoute exact path="/friends" component={FriendList} />
           <Route path="/login" component={Login} />
           <Route component={Login} />
