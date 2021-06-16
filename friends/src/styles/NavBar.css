@@ -1,0 +1,26 @@
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+}
+
+.link {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-top: 25px;
+    padding: 0 25px;
+}
+
+.right {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-top: 40px;
+    margin-left: 25px;
+}
