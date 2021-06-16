@@ -10,7 +10,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Click here to login</h1>
         <Switch>
           <Route path="/login" component={LoginForm} />
           <Route path="/friendsList" component={FriendsList} />
