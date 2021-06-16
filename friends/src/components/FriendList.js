@@ -20,7 +20,7 @@ class FriendList extends React.Component {
         axiosWithAuth()
             .get("/api/friends")
             .then(res => {
-                console.log("AXIOS FRIENDS GET: ", res.data)
+                // console.log("AXIOS FRIENDS GET: ", res.data)
                 this.setState({
                     ...this.state,
                     friends: res.data
@@ -31,9 +31,14 @@ class FriendList extends React.Component {
             })
     }
     
+    // addFriend = e => {
+    //     this.props.history.push('/friends'); 
+    // }
+
     render() {
         return (
             <div>
+                {/* <button onClick={this.addFriend}>Add A New Friend</button> */}
                 {this.state.friends.map(friend => (
                     <div key={friend.id}>
                         <p>{friend.name}</p>

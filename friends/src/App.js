@@ -11,21 +11,9 @@ import FriendForm from './components/FriendForm';
 import './App.css';
 
 function App (props) {
+
   const logout = () => {
-    console.log(localStorage)
-    const token = localStorage.getItem("token")
-    axiosWithAuth()
-      .post("http://localhost:5000")
-      .then(res => {
-        localStorage.removeItem("token");
-        window.location.href = "/login";
-        this.setState({
-          isAuth: false
-        })
-      })
-      .catch(err=>{
-        console.log(err);
-      })
+    localStorage.removeItem("token");
   };
 
   const isAuth = localStorage.getItem("token");
@@ -44,12 +32,11 @@ function App (props) {
             {!isAuth ? <Link to="/friends">Friends</Link> : <div></div>}
           </li>
           <li>
-            {/* {!isAuth ? <Link to="/friends/form">Friends Form</Link> : <div></div>} */}
-            <Link to="/friends/form">Friends Form</Link>
+            {!isAuth ? <Link to="/friends/form">Friends Form</Link> : <div></div>}
+            {/* <Link to="/friends/form">Friends Form</Link> */}
           </li>
           <li>
             <Link onClick={logout}>Logout</Link>
-            {/* <Link>Logout</Link> */}
           </li>
         </ul>
         </header>
