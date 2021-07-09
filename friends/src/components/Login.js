@@ -1,7 +1,7 @@
 import React, { useState }from 'react';
 import axios from 'axios';
 
-const Login = () => {
+const Login = (props) => {
 
   const [credentials, setCredentials] = useState({
       username: '',
@@ -21,6 +21,7 @@ const Login = () => {
       .then(res => {
         localStorage.setItem("token", res.data.payload)
         console.log("Logged In!")
+        props.history.push("/protected")
       })
       .catch(err =>console.log("Please input the correct credentials", err))
   }
