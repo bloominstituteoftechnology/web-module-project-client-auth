@@ -1,11 +1,11 @@
 import React, { useState }from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 const Login = () => {
 
   const [credentials, setCredentials] = useState({
       username: '',
-      password: ''
+      password: '',
   })
 
   const handleChange = e => {
@@ -15,13 +15,19 @@ const Login = () => {
     })
   }
 
-  // handleLogin = e => {
-
-  // }
+  const handleLogin = e => {
+    e.preventDefault();
+    axios.post("http://localhost:5000/api/login", credentials)
+      .then(res => {
+        localStorage.setItem("token", res.data.payload)
+        console.log("Logged In!")
+      })
+      .catch(err =>console.log("Please input the correct credentials", err))
+  }
 
     return(
         <div>
-            <form>
+            <form onSubmit={handleLogin}>
                 <input 
                   type="text"
                   name="username"
