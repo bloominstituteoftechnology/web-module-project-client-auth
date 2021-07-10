@@ -8,6 +8,14 @@ import FriendsList from './components/FriendsList';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
+
+  // Logout function
+  const handleLogout = () =>{
+    localStorage.removeItem('token');
+    console.log("Logged out.")
+  }
+
+
   return (
     <Router>
       <div className="App">
@@ -16,7 +24,7 @@ function App() {
             <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link>Logout</Link>
+            <Link onClick={handleLogout}>Logout</Link>
           </li>
           <li>
             <Link to="/protected">Your Friends</Link>
