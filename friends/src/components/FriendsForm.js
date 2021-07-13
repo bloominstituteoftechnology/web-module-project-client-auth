@@ -7,27 +7,27 @@ const FriendsForm = (props) => {
 
 //  console.log(props)
 
-  const [friend, setFriend] = useState({
-    id: Date.now(),
+  const [formValues, setFormValues] = useState({
     name: "",
     age: "",
     email: ""
   })
-  // console.log(friend)
+  // console.log(formValues)
   const handleChange = e => {
-    setFriend({
-      ...friend,
+    setFormValues({
+      ...formValues,
       [e.target.name]: e.target.value
     })
   }
-
+  
+  // We need the function that setFriends from application state. This is passed in via the prop setFriendsList, then referenced in handleSubmit to add the new friend to our list
   const handleSubmit = e => {
     e.preventDefault();
-    axiosWithAuth().post("/friends", friend)
+    axiosWithAuth().post("/friends", formValues)
       .then(res => {
-        console.log(res.data)
-        setFriend({
-          ...props,
+        console.log(res)
+        props.setFriendsList(res.data)
+        setFormValues({
           name: "",
           age: "",
           email: ""
@@ -44,21 +44,21 @@ const FriendsForm = (props) => {
           type="text"
           name="name"
           placeholder="name"
-          value={friend.name}
+          value={formValues.name}
           onChange={handleChange}
         />
         <input
           type="text"
           name="age"
           placeholder="age"
-          value={friend.age}
+          value={formValues.age}
           onChange={handleChange}
         />
         <input
           type="text"
           name="email"
           placeholder="email"
-          value={friend.email}
+          value={formValues.email}
           onChange={handleChange}
         />
         <button>Add a Friend</button>

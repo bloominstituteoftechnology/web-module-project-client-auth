@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Login = (props) => {
 
-  console.log(props)
+  // console.log(props)
 
   const [credentials, setCredentials] = useState({
       username: '',

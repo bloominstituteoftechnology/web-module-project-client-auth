@@ -24,7 +24,7 @@ useEffect(() =>{
           <p>{friend.name}</p>
         </div>
       ))}
-      <FriendsForm friends={friendsList}/>
+      <FriendsForm friends={friendsList} setFriendsList={setFriendsList}/>
     </div>
   )
 };
