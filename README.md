@@ -65,8 +65,6 @@ Topics:
 * It really is up to you how you build this project. I suggest writing down the flow you want to follow, and then writing down each individual piece you need for each step in the flow so that this process doesn't feel as overwhelming.
 
 ### Task 3: Stretch Problems
-
-* In the requirements for this project, we implemented a login POST operation, a GET operation, and a "add friend" POST operation. Add two more functions, one for making a PUT request, and the other for making a DELETE request.
 * Style the friends list and the input field and make everything look nice.
 * Expand the number of properties that you put on each friend object. Feel free to remove the dummy data on the server or modify it in any way.
 
