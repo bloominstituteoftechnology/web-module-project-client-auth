@@ -31,12 +31,8 @@ Topics:
 * Once your server is up and running, the URL you'll be able to hit from within your app is `http://localhost:5000`. You will however need an authentication header on all the calls except the login call.
 * Take a look at the endpoints that our API has to offer in `server.js`.
 
-<<<<<<< HEAD
   * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'lambda', password: 'school' }`
   * **[POST]** * to `/api/logout`: removes a token from active use. Returns the inactive token. 
-=======
-  * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'Lambda', password: 'School' }`
->>>>>>> fab39c223409ebc3d1214b8a65c626c491f24244
   * **[GET]** to `/api/friends`: returns the list of friends.
   * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
 
