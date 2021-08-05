@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
 
-const Login = (props) => {
+const token =
+  "esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ";
+
+const Login = () => {
   // state handling
   const initialFormValues = {
     username: "",
@@ -13,8 +17,11 @@ const Login = (props) => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const login = (e) => {
     e.preventDefault();
+    axios
+      .post("http://localhost:5000/api/login", token)
+      .then((res) => console.log(res));
   };
 
   // constants
@@ -22,7 +29,7 @@ const Login = (props) => {
   const PASSWORD = "password";
 
   return (
-    <form action="submit" onSubmit={handleSubmit}>
+    <form action="submit" onSubmit={login}>
       <fieldset>
         <label htmlFor={USER_NAME}>Username</label>
         <input
