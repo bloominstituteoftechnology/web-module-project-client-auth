@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../axiosWithAuth";
+import Friend from "./Friend";
 
 const FriendsList = (props) => {
   const [list, setList] = useState([]);
@@ -21,16 +22,28 @@ const FriendsList = (props) => {
       .then((res) => setList(res.data));
   }, []);
 
+  const handleDetailClick = (e) => {
+    e.preventDefault();
+    getFriend(e.target.id);
+  };
+
+  const getFriend = (id) => {// I have no clue what to do with this returned data or how to render it into another component
+    axiosWithAuth()
+      .get(`/friends/${id}`)
+      .then((res) => console.log(res.data));
+  };
+
   return (
     <div>
       <button onClick={logout}>Log Out</button>
       {list.length > 0 ? (
         <ul>
           {list.map((friend, index) => (
-            <div className="friend" key={index}>
-              <h4>{friend.name}</h4>
-              <span>age: {friend.age}</span>
-              <span>email: {friend.email}</span>
+            <div key={index}>
+              <Friend friend={friend} />
+              <button id={friend.id} onClick={handleDetailClick}>
+                Details
+              </button>
             </div>
           ))}
         </ul>
