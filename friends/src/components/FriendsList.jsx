@@ -27,26 +27,35 @@ const FriendsList = (props) => {
     getFriend(e.target.id);
   };
 
-  const getFriend = (id) => {// I have no clue what to do with this returned data or how to render it into another component
+  const getFriend = (id) => {
+    // I have no clue what to do with this returned data or how to render it into another component
     axiosWithAuth()
       .get(`/friends/${id}`)
       .then((res) => console.log(res.data));
+  };
+
+  const addFriend = (e) => {
+    e.preventDefault();
+    history.push("/addFriend");
   };
 
   return (
     <div>
       <button onClick={logout}>Log Out</button>
       {list.length > 0 ? (
-        <ul>
-          {list.map((friend, index) => (
-            <div key={index}>
-              <Friend friend={friend} />
-              <button id={friend.id} onClick={handleDetailClick}>
-                Details
-              </button>
-            </div>
-          ))}
-        </ul>
+        <div>
+          <ul>
+            {list.map((friend, index) => (
+              <div key={index}>
+                <Friend friend={friend} />
+                <button id={friend.id} onClick={handleDetailClick}>
+                  Details
+                </button>
+              </div>
+            ))}
+          </ul>
+          <button onClick={addFriend}>Add Friend</button>
+        </div>
       ) : (
         <span>Fetching Friends...</span>
       )}

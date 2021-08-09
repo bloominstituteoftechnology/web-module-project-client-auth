@@ -58,6 +58,17 @@ function authenticator(req, res, next) {
   }
 }
 
+app.post("/api/friends", authenticator, (req, res) => {
+  const { id, name, age, email } = req.body;
+  const newFriend = { id, name, age, email };
+  if (friends.filter((fr) => fr.name === newFriend.name).length === 0) {
+    friends.push(newFriend);
+  }
+  setTimeout(() => {
+    res.send(friends);
+  }, 1000);
+});
+
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
   if (username === "lambda" && password === "school") {
