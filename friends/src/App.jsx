@@ -1,7 +1,13 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Login from "./components/Login";
 import FriendsList from "./components/FriendsList";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -11,9 +17,8 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/friends">
-            <FriendsList />
-          </Route>
+          <PrivateRoute path="/friends" component={FriendsList} />
+          <Redirect from="/" to="/login" />
           <Route path="*">
             <div>Route Not Found</div>
           </Route>
