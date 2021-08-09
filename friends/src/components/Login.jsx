@@ -1,35 +1,47 @@
 import React, { useState } from "react";
-import axios from "axios";
-
-const token =
-  "esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ";
+import { axiosWithAuth } from "../axiosWithAuth";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
-  // state handling
+  // constants
+  const USER_NAME = "username";
+  const PASSWORD = "password";
   const initialFormValues = {
-    username: "",
-    password: "",
+    USER_NAME: "",
+    PASSWORD: "",
   };
+  const history = useHistory();
+
+  // state handling
   const [formValues, setFormValues] = useState(initialFormValues);
+  const [credentials, setCredentials] = useState(formValues);
 
   // helper functions
+  const login = (credentials) => {
+    const { username, password } = credentials;
+    axiosWithAuth()
+      .post("/login", { username, password })
+      .then((res) => {
+        const { token } = res.data;
+        console.log(`%ctoken: ${token}`, "color: green");
+        localStorage.setItem("token", token);
+        history.push("/friends");
+      });
+  };
+
   const handleChange = (name, value) => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const login = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:5000/api/login", token)
-      .then((res) => console.log(res));
+    setCredentials(formValues);
+    setFormValues(initialFormValues);
+    login(credentials);
   };
 
-  // constants
-  const USER_NAME = "username";
-  const PASSWORD = "password";
-
   return (
-    <form action="submit" onSubmit={login}>
+    <form action="submit" onSubmit={handleSubmit}>
       <fieldset>
         <label htmlFor={USER_NAME}>Username</label>
         <input
