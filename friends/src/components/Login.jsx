@@ -7,41 +7,36 @@ const Login = () => {
   const USER_NAME = "username";
   const PASSWORD = "password";
   const initialFormValues = {
-    USER_NAME: "",
-    PASSWORD: "",
+    username: "",
+    password: "",
   };
   const history = useHistory();
 
   // state handling
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [credentials, setCredentials] = useState(formValues);
 
   // helper functions
-  const login = (credentials) => {
-    const { username, password } = credentials;
+  const login = (e) => {
+    const { username, password } = formValues;
+    e.preventDefault();
     axiosWithAuth()
-      .post("/login", { username, password })
+      .post("/login", {
+        username,
+        password,
+      })
       .then((res) => {
-        const { token } = res.data;
-        console.log(`%ctoken: ${token}`, "color: green");
-        localStorage.setItem("token", token);
+        localStorage.setItem("token", res.data.payload);
         history.push("/friends");
       });
   };
 
-  const handleChange = (name, value) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setCredentials(formValues);
-    setFormValues(initialFormValues);
-    login(credentials);
-  };
-
   return (
-    <form action="submit" onSubmit={handleSubmit}>
+    <form action="submit" onSubmit={login}>
       <fieldset>
         <label htmlFor={USER_NAME}>Username</label>
         <input
@@ -49,6 +44,7 @@ const Login = () => {
           name={USER_NAME}
           onChange={handleChange}
           placeholder={USER_NAME}
+          value={formValues.username}
         />
         <label htmlFor={PASSWORD}>Password</label>
         <input
@@ -56,6 +52,7 @@ const Login = () => {
           name={PASSWORD}
           onChange={handleChange}
           placeholder={PASSWORD}
+          value={formValues.password}
         />
         <button type="submit">Login</button>
       </fieldset>
