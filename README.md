@@ -10,6 +10,7 @@
     - [Task 3: Stretch Problems](#task-3-stretch-problems)
   - [Submission Format](#submission-format)
   - [Rick Mansfield's Pull req link](#rick-mansfields-pull-req-link)
+  - [Class Questions](#class-questions)
 
 Topics:
 
@@ -81,3 +82,9 @@ Topics:
 
 ## Rick Mansfield's Pull req link
 - [Link for convenience](https://github.com/LambdaSchool/web-module-project-client-auth/pull/60)
+  
+## Class Questions
+1. What is authentication 
+   1. - Authenticaion (belongs) Security measures for verifying a user is the intended authentic client to proceed to other protected paths of the app. i.e. a process for making sure the identy of the user is "authentic." Authorized(permissions) FYI this is not the same as authorization where multiple folks might have "levels" of access.
+   2. 
+- ![process of authentication](assets\Capture1.JPG)
