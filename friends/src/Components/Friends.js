@@ -2,9 +2,11 @@ import React from 'react';
 import axiosWithAuth from '../Authorization/axiosWithAuth';
 
 
+
 export default class Friends extends React.Component {
     state = {
-        friends: []
+        friends: [],
+        newFriend: []
     };
 
     componentDidMount(){
@@ -24,6 +26,7 @@ export default class Friends extends React.Component {
             });
     };
 
+
     formatData=()=>{
         const formattedData = [];
         this.state.friends.forEach((friend, index)=>{
@@ -37,6 +40,18 @@ export default class Friends extends React.Component {
         return formattedData;
     };
 
+    handleChange=()=>{
+        
+    }
+
+    handleSubmit=()=>{
+        axiosWithAuth().post('/friends', {...this.newFriend, id: Date.now()})
+        .then((res)=>{
+            console.log('Trash', res)
+            this.setState([...this.state, res.data])
+        })
+    }
+
     render() {
         const friends = this.formatData()
         return (
@@ -48,6 +63,20 @@ export default class Friends extends React.Component {
                         <p>Their email is {friend.email}.</p>
                     </div>
                 ))}
+                <form onSubmit={this.handleSubmit}>
+                    <h2>Add a Friend:</h2>
+                    <label>Name:
+                        <input type='text' name='friend' onChange={} />
+                    </label>
+                    <label> Age:
+                        <input type='number' name='age' onChange={} />
+                    </label>
+                    <label>Email:
+                        <input type='email' name='email' onChange={} />
+                    </label>
+                    <br/>
+                    <button>Add friend!</button>
+                </form>
             </div>
         )
     }
