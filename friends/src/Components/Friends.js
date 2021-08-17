@@ -6,7 +6,12 @@ import axiosWithAuth from '../Authorization/axiosWithAuth';
 export default class Friends extends React.Component {
     state = {
         friends: [],
-        newFriend: []
+        newFriend: {
+            id: '',
+            name: '',
+            age: '',
+            email: ''
+        }
     };
 
     componentDidMount(){
@@ -26,7 +31,6 @@ export default class Friends extends React.Component {
             });
     };
 
-
     formatData=()=>{
         const formattedData = [];
         this.state.friends.forEach((friend, index)=>{
@@ -40,15 +44,12 @@ export default class Friends extends React.Component {
         return formattedData;
     };
 
-    handleChange=()=>{
-        
-    }
-
-    handleSubmit=()=>{
-        axiosWithAuth().post('/friends', {...this.newFriend, id: Date.now()})
+    handleSubmit=(e)=>{
+        e.preventDefault()
+        axiosWithAuth().post('http://localhost:5000/api/friends', {...this.state.newFriend, id: Date.now()})
         .then((res)=>{
             console.log('Trash', res)
-            this.setState([...this.state, res.data])
+            this.setState([...this.state.friend, res.data])
         })
     }
 
@@ -66,13 +67,13 @@ export default class Friends extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <h2>Add a Friend:</h2>
                     <label>Name:
-                        <input type='text' name='friend' onChange={} />
+                        <input type='text' name='friend' value={this.state.newFriend.name} onChange={(e)=>this.setState({...this.state, newFriend: {...this.state.newFriend, name: e.target.value} })} />
                     </label>
                     <label> Age:
-                        <input type='number' name='age' onChange={} />
+                        <input type='number' name='age' value={this.state.newFriend.age} onChange={(e)=>this.setState({...this.state, newFriend: {...this.state.newFriend, age: e.target.value} })} />
                     </label>
                     <label>Email:
-                        <input type='email' name='email' onChange={} />
+                        <input type='email' name='email' value={this.state.newFriend.email} onChange={(e)=>this.setState({...this.state, newFriend: {...this.state.newFriend, email: e.target.value} })} />
                     </label>
                     <br/>
                     <button>Add friend!</button>
