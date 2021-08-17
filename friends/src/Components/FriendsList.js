@@ -15,13 +15,13 @@ export default function FriendsList() {
             })
     }, [])
     return (
-        <main>
+        <>
             <h1>Friends</h1>
             <ul>
                 {friends.map(friend => 
                     <Friend friend={friend} key={friend.id}/>    
                 )}
             </ul>
-        </main>
+        </>
     )
 }

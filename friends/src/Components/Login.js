@@ -34,7 +34,7 @@ export default function Login() {
     
     return (
         <form onSubmit={submit}>
-            <label for="username">
+            <label htmlFor="username">
                 Username:
                 <input 
                     type="text"
@@ -44,7 +44,7 @@ export default function Login() {
                     value={state.username}
                 />
             </label>
-            <label for="password">
+            <label htmlFor="password">
                 Password:
                 <input 
                     type="password"

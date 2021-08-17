@@ -3,11 +3,14 @@ import Login from "./Components/Login";
 import PrivateRoute from "./Components/PrivateRoute";
 import FriendsList from "./Components/FriendsList";
 import makeRequest from "./Api";
+import "./Style/app.css";
 
 function App() {
   const logout = () => {
     makeRequest().post("/api/logout")
-      .then(() => {})
+      .then(() => {
+        localStorage.removeItem("token")
+      })
       .catch(err => console.log(err))
   }
   return (
@@ -21,13 +24,15 @@ function App() {
         </Link>
       </header>
       <Switch>
-        <Route exact path="/">
-          <Login/>
-        </Route>
-        <PrivateRoute 
-          path="/friends" 
-          component={FriendsList} 
-        />
+        <main>
+          <Route exact path="/">
+            <Login/>
+          </Route>
+          <PrivateRoute 
+            path="/friends" 
+            component={FriendsList} 
+          />
+        </main>
       </Switch>
     </div>
   );
