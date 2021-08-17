@@ -49,6 +49,12 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
+let nextId = 7;
+
+function getNextId() {
+  return nextId++;
+}
+
 function authenticator(req, res, next) {
   const { authorization } = req.headers;
   if (authorization === token) {
@@ -93,6 +99,14 @@ app.get('/api/friends/:id', authenticator, (req, res) => {
   } else {
     res.status(404).send({ msg: 'Friend not found' });
   }
+});
+
+app.post('/api/friends', authenticator, (req, res) => {
+  const friend = { id: getNextId(), ...req.body };
+
+  friends = [...friends, friend];
+
+  res.send(friends);
 });
 
 app.get('/api/', (req, res) => {
