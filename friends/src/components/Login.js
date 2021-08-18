@@ -24,7 +24,7 @@ const Login = (props) => {
         axios.post('http://localhost:5000/api/login', formValues)
             .then(res => {
                 localStorage.setItem("token", res.data.payload);
-                push('/protected')
+                push('/friends')
             })
             .catch(err => console.log(err))
     }

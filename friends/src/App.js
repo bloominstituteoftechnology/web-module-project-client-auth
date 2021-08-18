@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import PrivateRoute from './components/PrivateRoute'
 
 import Login from './components/Login'
 import Friends from './components/Friends'
@@ -15,7 +16,7 @@ function App() {
             <Link to='/'>
               <a>Login</a>
             </Link>
-            <Link to='/protected'>
+            <Link to='/friends'>
               <a>Friends</a>
             </Link>
           </nav>
@@ -24,9 +25,7 @@ function App() {
           <Route exact path='/'>
             <Login/>
           </Route>
-          <Route path='/protected'>
-            <Friends/>
-          </Route>
+          <PrivateRoute path='/friends' component={Friends}/>
         </div>
         </Router>
     </div>
