@@ -1,28 +1,31 @@
 import React from 'react';
 import useForm from "../Hooks/useForm";
 import makeRequest from '../Api';
-import { v4 as uuid } from "uuid"
+import { useHistory } from 'react-router';
 
 const initialState = {
-    id: uuid(),
     name: "",
     age: 0,
     email: ""
 }
 
-export default function CreateFriends() {
-    const [state, handleChange] = useForm(initialState)
+export default function CreateFriends(props) {
+    const { setFriends } = props;
+    const history = useHistory();
+    const [state, handleChange] = useForm(initialState);
 
     const submit = event => {
         event.preventDefault()
         makeRequest().post("/api/friends", state)
             .then(res => {
-                console.log()
+                setFriends(res.data)
+                history.push("/friends")
             })
     }
 
     return (
         <form onSubmit={submit}>
+            <button onClick={() => history.goBack()} >Back</button>
             <label for="name">
                 Name:
                 <input 

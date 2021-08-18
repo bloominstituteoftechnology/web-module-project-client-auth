@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const uuid = require("uuid");
 const port = 5000;
 const app = express();
 const token =
@@ -93,6 +94,14 @@ app.get('/api/friends/:id', authenticator, (req, res) => {
   } else {
     res.status(404).send({ msg: 'Friend not found' });
   }
+});
+
+app.post('/api/friends', authenticator, (req, res) => {
+  const friend = { id: uuid.v4(), ...req.body };
+
+  friends = [...friends, friend];
+
+  res.send(friends);
 });
 
 app.get('/api/', (req, res) => {
