@@ -24,33 +24,35 @@ const Login = (props) => {
         axios.post('http://localhost:5000/api/login', formValues)
             .then(res => {
                 localStorage.setItem("token", res.data.payload);
-                push('/friends')
             })
             .catch(err => console.log(err))
+            .finally(()=> {
+                push('/friends')
+            })
     }
 
-    return(
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>Login
-                    <input
-                        type='text'
-                        name='username'
-                        value={formValues.username}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>Password
-                    <input
-                        type='password'
-                        name='password'
-                        value={formValues.password}
-                        onChange={handleChange}
-                    />
-                </label>
-                <button>Submit</button>
-            </form>
-        </div>
+         return(
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <label>Login
+                        <input
+                            type='text'
+                            name='username'
+                            value={formValues.username}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label>Password
+                        <input
+                            type='password'
+                            name='password'
+                            value={formValues.password}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <button>Submit</button>
+                </form>
+            </div>
     )
 }
 

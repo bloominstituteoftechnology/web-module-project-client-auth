@@ -5,6 +5,7 @@ import axiosWithAuth from '../utils/axiosWithAuth'
 
 const Friends = () => {
     const [friends, setFriends] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     const { push } = useHistory()
 
@@ -14,29 +15,34 @@ const Friends = () => {
     }, [])
 
     const getFriends = () => {
+        setIsLoading(true)
         axiosWithAuth()
             .get('/friends')
             .then(res => setFriends(res.data))
             .catch(err => console.log(err))
+            .finally(() => setIsLoading(false))
     }
 
-    return (
-        <div>
-            {friends.map(friend => {
-                return(console.log(friend.id),
-                    <div id={friend.id}
-                        style={{
-                        border:'solid 1px'
-                    }}
-                    >
-                        <h2>{friend.name}</h2>
-                        <h3>{friend.age}</h3>
-                        <p>{friend.email}</p>
-                    </div>
-                )
-            })}
-        </div>
-    )
+    if(isLoading){
+        return (<div>Loading friends...</div>)
+    } else {
+        return (
+            <div>
+                {friends.map(friend => {
+                    return(console.log(friend.id),
+                        <div id={friend.id}
+                            style={{
+                            border:'solid 1px'
+                        }}
+                        >
+                            <h2>{friend.name}</h2>
+                            <h3>{friend.age}</h3>
+                            <p>{friend.email}</p>
+                        </div>
+                    )
+                })}
+            </div>
+        )}
 }
 
 export default Friends

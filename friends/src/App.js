@@ -4,6 +4,7 @@ import PrivateRoute from './components/PrivateRoute'
 
 import Login from './components/Login'
 import Friends from './components/Friends'
+import Logout from './components/Logout'
 
 function App() {
 
@@ -13,11 +14,14 @@ function App() {
         <header>
           <h1>Friends</h1>
           <nav>
+            <Link to='/friends'>
+              <a>Friends</a>
+            </Link>
             <Link to='/'>
               <a>Login</a>
             </Link>
-            <Link to='/friends'>
-              <a>Friends</a>
+            <Link to='/logout'>
+              <a>Logout</a>
             </Link>
           </nav>
         </header>
@@ -26,6 +30,7 @@ function App() {
             <Login/>
           </Route>
           <PrivateRoute path='/friends' component={Friends}/>
+          <PrivateRoute path='/logout' component={Logout}/>
         </div>
         </Router>
     </div>
