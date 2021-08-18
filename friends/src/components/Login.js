@@ -22,7 +22,9 @@ class Login extends React.Component {
         e.preventDefault();
         axios.post('http://localhost:5000/api/login', this.state.credentials)
         .then(res =>{
-            localStorage.setItem("token", res.data.token)
+            console.log(res)
+            localStorage.setItem("token", res.data.payload)
+            this.props.history.push('/protected')
         })
         .catch(err =>{
             console.log(err)
@@ -33,7 +35,7 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.login}>
                     <input
                     type="text"
                     name="username"
