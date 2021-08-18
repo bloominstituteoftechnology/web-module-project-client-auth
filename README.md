@@ -1,5 +1,17 @@
 # Auth Friends
 
+- [Auth Friends](#auth-friends)
+  - [Instructions](#instructions)
+    - [Task 1: Set Up](#task-1-set-up)
+      - [Initialize Project](#initialize-project)
+    - [Task 2: MVP](#task-2-mvp)
+      - [Project Description](#project-description)
+      - [Build the App!](#build-the-app)
+    - [Task 3: Stretch Problems](#task-3-stretch-problems)
+  - [Submission Format](#submission-format)
+  - [Rick Mansfield's Pull req link](#rick-mansfields-pull-req-link)
+  - [Class Questions](#class-questions)
+
 Topics:
 
 * React Router
@@ -68,3 +80,12 @@ Topics:
 
 ## Submission Format
 * [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+
+## Rick Mansfield's Pull req link
+- [Link for convenience](https://github.com/LambdaSchool/web-module-project-client-auth/pull/60)
+  
+## Class Questions
+1. What is authentication 
+   1. - Authenticaion (belongs) Security measures for verifying a user is the intended authentic client to proceed to other protected paths of the app. i.e. a process for making sure the identy of the user is "authentic." Authorized(permissions) FYI this is not the same as authorization where multiple folks might have "levels" of access.
+   2. 
+- ![process of authentication](assets\Capture1.JPG)
