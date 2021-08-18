@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 const initialFormValues = {
@@ -9,8 +8,6 @@ const initialFormValues = {
 
 const Login = (props) => {
     const [formValues, setFormValues] = useState(initialFormValues)
-
-    const { push } = useHistory()
 
     const handleChange = (e) => {
         setFormValues({
@@ -24,10 +21,10 @@ const Login = (props) => {
         axios.post('http://localhost:5000/api/login', formValues)
             .then(res => {
                 localStorage.setItem("token", res.data.payload);
+                props.history.push('/friends')
             })
             .catch(err => console.log(err))
             .finally(()=> {
-                push('/friends')
             })
     }
 

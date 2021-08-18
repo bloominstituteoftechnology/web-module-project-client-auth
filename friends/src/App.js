@@ -26,9 +26,7 @@ function App() {
           </nav>
         </header>
         <div>
-          <Route exact path='/'>
-            <Login/>
-          </Route>
+          <Route exact path='/' component={Login}/>
           <PrivateRoute path='/friends' component={Friends}/>
           <PrivateRoute path='/logout' component={Logout}/>
         </div>
