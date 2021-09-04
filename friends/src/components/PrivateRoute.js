@@ -4,7 +4,6 @@ import { Route, Redirect } from 'react-router-dom';
 const PrivateRoute = ({ component: Component, ...rest }) => {
     return <Route {...rest} render={(props) => {
         if (localStorage.getItem("authtoken")) {
-            alert('Welcome, you have permission')
             return <Component {...props} />
         } else {
             // alert('Wrong username or password!')

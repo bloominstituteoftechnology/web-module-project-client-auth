@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { axiosWithAuth } from '../axiosAuth';
 import Friend from './Friend';
+import AddFriend from './AddFriend';
 
 import { useHistory } from "react-router";
 
@@ -32,6 +33,8 @@ const FriendsList = () => {
             })} */}
             {/* <Friend /> */}
             <button onClick={logOut}>Log Out</button>
+            <h1>Add Friend</h1>
+            <AddFriend />
         </div>
     )
 }
