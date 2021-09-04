@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { axiosWithAuth } from '../axiosAuth';
 import Friend from './Friend';
 import AddFriend from './AddFriend';
+import '../App.css'
 
 import { useHistory } from "react-router";
 
@@ -16,22 +17,20 @@ const FriendsList = () => {
     }
 
     useEffect(() => {
-        axiosWithAuth().get('http://localhost:5000/api/friends').then(res => setFriends(res.data))
+        axiosWithAuth().get('http://localhost:5000/api/friends').then(res => setFriends(res.data)
+        )
             .catch(err => console.log(err))
         return () => {
-            console.log('cleanUp')
+
         }
     }, [])
     return (
         <div>
             <h1>Friends!</h1>
+            {friends.length === 0 ? <div className="loader"></div> : <div>done loading</div>}
             {
-                friends.map(el => <Friend data={el} />)
+                friends.map(el => <Friend data={el} key={el.id} />)
             }
-            {/* {friends.map(friend => {
-                <Friend friend={friend} />
-            })} */}
-            {/* <Friend /> */}
             <button onClick={logOut}>Log Out</button>
             <h1>Add Friend</h1>
             <AddFriend />
