@@ -8,6 +8,7 @@ import '../App.css'
 import { useHistory } from "react-router";
 
 const FriendsList = () => {
+
     const [friends, setFriends] = useState([])
 
     const history = useHistory()
@@ -27,13 +28,13 @@ const FriendsList = () => {
     return (
         <div>
             <h1>Friends!</h1>
-            {friends.length === 0 ? <div className="loader"></div> : <div>done loading</div>}
+            {friends.length === 0 ? <div className="loader"></div> : ''}
             {
                 friends.map(el => <Friend data={el} key={el.id} />)
             }
             <button onClick={logOut}>Log Out</button>
             <h1>Add Friend</h1>
-            <AddFriend />
+            <AddFriend friends={friends} setFriends={setFriends} />
         </div>
     )
 }
