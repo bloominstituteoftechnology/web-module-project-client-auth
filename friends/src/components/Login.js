@@ -5,6 +5,7 @@ import { axiosWithAuth } from '../axiosAuth'
 
 const Login = (props) => {
 
+
     const history = useHistory()
 
     const [isLoading, setIsLoading] = useState(false)
@@ -23,20 +24,19 @@ const Login = (props) => {
         e.preventDefault()
         axios.post('http://localhost:5000/api/login', credentials)
             .then(res => {
-                localStorage.setItem("authtoken", res.data.token);
+                console.log(res)
+                localStorage.setItem("authtoken", res.data.payload);
                 localStorage.setItem("username", res.data.username);
                 localStorage.setItem("password", res.data.password);
-                history.push('/private');
+                history.push('/friends');
             })
             .catch(err => {
                 console.log(err);
             })
-        // axiosWithAuth().get('http://localhost:5000/api/login').then(data => console.log(data));
-        history.push('/private')
-        // setCredentials({
-        //     username: '',
-        //     password: ''
-        // })
+        setCredentials({
+            username: '',
+            password: ''
+        })
     }
 
     // const removePermission = (e) => {
@@ -59,7 +59,7 @@ const Login = (props) => {
                 <label htmlFor="password">
                     <input name='password' type="password" onChange={handleChanges} placeholder="Enter Password" value={credentials.password} />
                 </label>
-                <button onClick={logIn}>Submit</button>
+                <button onClick={logIn}>Sign in</button>
             </form>
             {/* <button onClick={removePermission}>Remove Permissions</button> */}
         </div>

@@ -5,9 +5,7 @@ export const axiosWithAuth = () => {
 
     return axios.create({
         headers: {
-            Authorization: token,
-            username: 'lambda',
-            password: 'school'
+            Authorization: token
         },
     });
 };
