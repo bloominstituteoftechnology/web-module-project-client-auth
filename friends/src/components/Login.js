@@ -39,6 +39,12 @@ const Login = (props) => {
         // })
     }
 
+    // const removePermission = (e) => {
+    //     e.preventDefault();
+    //     localStorage.removeItem('authtoken')
+    //     alert('permission removed')
+    // }
+
 
 
     return (
@@ -55,6 +61,7 @@ const Login = (props) => {
                 </label>
                 <button onClick={logIn}>Submit</button>
             </form>
+            {/* <button onClick={removePermission}>Remove Permissions</button> */}
         </div>
     )
 }
