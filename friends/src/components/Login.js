@@ -1,19 +1,19 @@
 import React from 'react'
-import { axiosWithAuth } from '../utils/axiosWithAuth'
+import axios from 'axios'
 
 class Login extends React.Component {
     state = {credentials: {username: 'lambda', password: 'school'}}
 
     handleChange = e => {
-        this.setState({friend: {...this.state.friend, [e.target.name]: e.target.value}, id: Data.now})
+        this.setState({credentials: {...this.state.credentials, [e.target.name]: e.target.value}})
     }
     
-    submit = e => {
+    login = e => {
         e.preventDefault()
-        axiosWithAuth()
-        .post('/api/friends', this.state.friend)
+        axios.post('https://localhost:5000/api/login', this.state.credentials)
         .then(res => {
             console.log('AXIOS - FRIENDS PUT RESPONSE')
+            localStorage.setItem('token', res.data.payload)
             this.props.history.push('/friends')
         })
         .catch(err => {
@@ -22,17 +22,14 @@ class Login extends React.Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div>
-                <form onSubmit={this.submit}>
+                <form onSubmit={this.login}>
                     <div>
-                    <label>Name:</label>
-                    <input type='text' name='name' placeholder='Name' value={this.state.friend.name} onChange={this.handleChange} />
-                    <label>Age:</label>
-                    <input type='age' name='age' placeholder='Age' value={this.state.friend.age} onChange={this.handleChange} />
-                    <label>Email:</label>
-                    <input type='email' name='email' placeholder='Email' value={this.state.friend.email} onChange={this.handleChange} />
+                    <label>Username:</label>
+                    <input type='text' name='username' placeholder='Username' value={this.state.credentials.username} onChange={this.handleChange} />
+                    <label>Password:</label>
+                    <input type='text' name='password' placeholder='Password' value={this.state.credentials.password} onChange={this.handleChange} />
                     </div>
                     <button>Login</button>
                 </form>
