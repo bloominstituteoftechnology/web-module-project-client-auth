@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 
-const initialFormValues = { username: "", password: "" }
+const initialFormValues = {
+  username: "",
+  password: ""
+}
 
 function Login() {
   const { push } = useHistory();
