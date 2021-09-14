@@ -20,7 +20,7 @@ function Login() {
     axios.post("http://localhost:5000/api/login", formValues)
       .then((res) => {
         localStorage.setItem("token", res.data.payload);
-
+        push("/friends");
       })
       .catch((err) => console.log(err.message));
   };
