@@ -7,6 +7,7 @@ const Logout = (props) => {
     axiosWithAuth()
       .post("/logout")
       .then((res) => {
+        localStorage.removeItem("token");
         props.history.push("/login");
       })
       .catch((err) => {
