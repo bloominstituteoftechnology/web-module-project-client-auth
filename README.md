@@ -82,4 +82,4 @@ Topics:
 
 
 ## Rick's pull req link
-- []()
+- [Link](https://github.com/LambdaSchool/web-module-project-client-auth/pull/77)
