@@ -25,7 +25,7 @@ function Login() {
       .catch((err) => console.log(err.message));
   };
 
-  return(
+  return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">Username</label>
       <input 
