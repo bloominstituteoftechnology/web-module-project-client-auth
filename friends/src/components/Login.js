@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router";
 
 const initialFormValues = { username: "", password: "" }
 
 function Login() {
+  const { push } = useHistory();
   const [ formValues, setFormValues ] = useState(initialFormValues);
 
   const handleChange = e => {
@@ -12,22 +15,35 @@ function Login() {
     })
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:5000/api/login", formValues)
+      .then((res) => {
+        localStorage.setItem("token", res.data.payload);
+
+      })
+      .catch((err) => console.log(err.message));
+  };
+
   return(
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="username">Username</label>
       <input 
         id="username"
         name="username"
         type="text" 
         value={formValues.username} 
-        onChange={handleChange} />
+        onChange={handleChange} 
+      />
       <label htmlFor="password">Password</label>
       <input 
         id="password"
         name="password"
         type="password" 
         value={formValues.password} 
-        onChange={handleChange} />
+        onChange={handleChange} 
+      />
+      <button>Login</button>
     </form>
   );
 }
