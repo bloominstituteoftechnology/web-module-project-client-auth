@@ -20,9 +20,9 @@ const FriendsList = () => {
 
   return (
     <div>
-      {friends.map((friend) => {
-        return <Friend key={friend.id} friend={friend} />;
-      })}
+      {friends.map((friend) => (
+        <Friend key={friend.id} friend={friend} />
+      ))}
     </div>
   );
 };

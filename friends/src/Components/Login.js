@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import "../App.css";
+
 const Login = (props) => {
   const [credentials, setCredentials] = useState({
     username: "",
@@ -20,6 +22,7 @@ const Login = (props) => {
       .post("http://localhost:5000/api/login", credentials)
       .then((res) => {
         localStorage.setItem("token", res.data.payload);
+        props.history.push("/friendslist");
       })
       .catch((err) => {
         console.log(err);
@@ -27,21 +30,30 @@ const Login = (props) => {
   };
 
   return (
-    <div>
+    <div className="login">
       <form onSubmit={login}>
-        <input
-          type="text"
-          name="username"
-          value={credentials.username}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="password"
-          value={credentials.password}
-          onChange={handleChange}
-        />
-        <button>Log In</button>
+        <label>
+          Username
+          <input
+            type="text"
+            name="username"
+            value={credentials.username}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="text"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+          />
+        </label>
+
+        <div className="button">
+          <button>Log In</button>
+        </div>
       </form>
     </div>
   );
