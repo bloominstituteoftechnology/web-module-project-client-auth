@@ -31,3 +31,12 @@ label {
   padding: 10px;
   margin: 10px;
 }
+
+.friend {
+  margin: 5px;
+  border: 1px black solid;
+}
+
+.logout {
+  text-align: center;
+}

@@ -33,7 +33,7 @@ const Login = (props) => {
     <div className="login">
       <form onSubmit={login}>
         <label>
-          Username
+          Username:
           <input
             type="text"
             name="username"
@@ -42,7 +42,7 @@ const Login = (props) => {
           />
         </label>
         <label>
-          Password
+          Password:
           <input
             type="text"
             name="password"

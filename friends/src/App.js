@@ -24,7 +24,7 @@ function App() {
       </div>
       <div>
         <Switch>
-          <ProtectedRoute exact path="/friendslist" component={FriendsList} />
+          <ProtectedRoute path="/friendslist" component={FriendsList} />
           <Route path="/logout" component={Logout} />
           <Route path="/login" component={Login} />
           <Route path="/" component={Login} />

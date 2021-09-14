@@ -2,11 +2,10 @@ import React from "./Friend";
 
 const Friend = (props) => {
   return (
-    <div>
-      <p>
-        {props.friend.name} is {props.friend.age} years old and can be contacted
-        at {props.friend.email}
-      </p>
+    <div className="friend">
+      <p>Name: {props.friend.name} </p>
+      <p>Age: {props.friend.age} </p>
+      <p>Email: {props.friend.email} </p>
     </div>
   );
 };

@@ -15,7 +15,11 @@ const Logout = (props) => {
       });
   }, []);
 
-  return <div></div>;
+  return (
+    <div className="logout">
+      <p>You have successfully logged out.</p>
+    </div>
+  );
 };
 
 export default Logout;
