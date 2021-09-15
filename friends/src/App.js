@@ -1,10 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 // import Logout from './components/Logout';
-// import './App.css';
 import styled from 'styled-components';
+import PrivateRoute from "./components/PrivateRoute";
+import FriendsList from "./components/FriendsList.js";
+
 const StyledBody = styled.div`
   background-color: ${({ theme }) => theme.secondaryColor};
   header {
@@ -25,6 +27,7 @@ function App() {
     <div className="App">
       <StyledBody className="App-header">
         <Switch>
+        <PrivateRoute exact path="/protected" component={FriendsList} />
           <Route exact path="/"><Home/></Route>
           <Route path="/login"><Login /></Route>
         </Switch>

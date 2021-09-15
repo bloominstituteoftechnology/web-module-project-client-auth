@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import styled from "styled-components";
-
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const Login = () => {
-    const [value, setValue] = useState({
-        username: "",
-        password: ""
-    })
+    const history = useHistory();
+    const [value, setValue] = useState(
+        {
+            username: "",
+            password: ""
+        }
+    )
 
 
     const handleChange = e => {
@@ -20,10 +22,13 @@ const Login = () => {
 
     const login = e => {
         e.preventDefault();
-        axios.post('http://localhost:5000/api/login', value)
+        console.log('Login.js ln:23 Login Fired Credentials are:', value);
+        axiosWithAuth()
+            .post('/login', value)
             .then(res => {
-                console.log(res)
-                localStorage.setItem("token", res.data.token);
+                console.log("Login Res.data.token", res.data.payload);
+                localStorage.setItem("token", res.data.payload);
+                history.push("/protected");
 
             })
             .catch(err => {
@@ -45,7 +50,7 @@ const Login = () => {
                         <Link to="/">My Profile</Link>
                     </span>
                     <span className="navspans">
-                        <Link to="/">Meet our Team</Link>
+                        <Link to="/">Creator</Link>
                     </span>
                 </nav>
             </StyledHeader>
