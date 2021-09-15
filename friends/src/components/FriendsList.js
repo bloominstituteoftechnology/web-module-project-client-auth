@@ -32,41 +32,46 @@ const FriendsList = () => {
 
     return (
         <Router>
-        <Container>
-            
-            <header>
-                <h1 id="hide">FRIENDS LIST</h1>
-                <nav>
-                    <span className="navspans">
-                        <Link to="/login">Login</Link>
-                    </span>
-                    <span className="navspans">
-                        <Link to="/">Dashboard</Link>
-                    </span>
-                    <span className="navspans">
-                        <Link to="/">My Profile</Link>
-                    </span>
-                    <span className="navspans">
-                        <Link to="/">Created By</Link>
-                    </span>
-                    <span className="navspans">
-                        <Link to="/logout">Logout</Link>
-                    </span>
-                </nav>
-            </header>
-            <div className="friends-container">
-                {
-                    friends.map(friend => {
-                        return <Friend key={friend.id} friend={friend} />
-                    })
-                }
-                <Route render={(props)=>{
-                    console.log('FriendsList.js ln:64 props', props);
-                    return <AddFriendForm friends={friends} setFriends={setFriends}/>
-                }}/>
-                
-            </div>
-        </Container>
+            <Container>
+
+                <header>
+                    <h1 id="hide">FRIENDS LIST</h1>
+                    <nav>
+                        <span className="navspans">
+                            <Link to="/login">Login</Link>
+                        </span>
+                        <span className="navspans">
+                            <Link to="/">Dashboard</Link>
+                        </span>
+                        <span className="navspans">
+                            <Link to="/">My Profile</Link>
+                        </span>
+                        <span className="navspans">
+                            <Link to="/">Created By</Link>
+                        </span>
+                        <span className="navspans">
+                            <Link to="/logout">Logout</Link>
+                        </span>
+                    </nav>
+                </header>
+                <div>
+                    <h2>Add A Friend to the list below</h2>
+                </div>
+                <div>
+                    <Route render={(props) => {
+                        console.log('FriendsList.js ln:64 props', props);
+                        return <AddFriendForm friends={friends} setFriends={setFriends} />
+                    }} />
+
+                </div>
+                <div className="friends-container">
+                    {
+                        friends.map(friend => {
+                            return <Friend key={friend.id} friend={friend} />
+                        })
+                    }
+                </div>
+            </Container>
         </Router>
     );
 }
