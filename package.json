@@ -12,8 +12,8 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2",
-    "sass": "^1.32.5"
+    "nodemon": "^2.0.12",
+    "sass": "^1.41.0"
   },
   "scripts": {
     "start": "nodemon server.js"

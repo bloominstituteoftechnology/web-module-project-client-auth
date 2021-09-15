@@ -22,11 +22,12 @@ const Login = () => {
 
     const login = e => {
         e.preventDefault();
-        console.log('Login.js ln:23 Login Fired Credentials are:', value);
+        // console.log('Login.js ln:25 Login Fired Credentials are:', value);
         axiosWithAuth()
             .post('/login', value)
             .then(res => {
-                console.log("Login Res.data.token", res.data.payload);
+                // console.log("Login.js ln:29 Res.data.token", res.data);
+                // console.log("Login.js ln:30 res.data.token: ", res.data.payload);
                 localStorage.setItem("token", res.data.payload);
                 history.push("/protected");
 
@@ -143,9 +144,9 @@ const StyledChild = styled.div`
     opacity: 0.85;
   }
 `;
-const StyledInputs = styled.div`
-  margin-top: -5%;
-  padding: 15% 0 15% 0;
-  margin-left: -15%;
-`;
+// const StyledInputs = styled.div`
+//   margin-top: -5%;
+//   padding: 15% 0 15% 0;
+//   margin-left: -15%;
+// `;
 
