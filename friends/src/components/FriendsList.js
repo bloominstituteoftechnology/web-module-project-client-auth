@@ -4,6 +4,8 @@ import Friend from './Friend';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import AddFriendForm from './AddFriendForm';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 
 const FriendsList = () => {
@@ -29,7 +31,9 @@ const FriendsList = () => {
     }
 
     return (
+        <Router>
         <Container>
+            
             <header>
                 <h1 id="hide">FRIENDS LIST</h1>
                 <nav>
@@ -56,10 +60,15 @@ const FriendsList = () => {
                         return <Friend key={friend.id} friend={friend} />
                     })
                 }
-                <AddFriendForm friends={friends} />
+                <Route render={(props)=>{
+                    console.log('FriendsList.js ln:64 props', props);
+                    return <AddFriendForm friends={friends} setFriends={setFriends}/>
+                }}/>
+                
             </div>
         </Container>
-    )
+        </Router>
+    );
 }
 
 export default FriendsList

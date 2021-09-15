@@ -4,7 +4,7 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 
 
 const AddFriendForm = (props) => {
-
+    // console.log('AddFriendForm.js ln:7 props', props);
     const initialState = {
         name: '',
         age: '',
@@ -23,16 +23,17 @@ const AddFriendForm = (props) => {
         e.preventDefault()
         // console.log('AddFriendForm.js ln:22 handeSubmit:', newFriend);
         // addFriend()
-        console.log('AddFriendForm.js ln:24 newFriend', newFriend);
+        console.log('AddFriendForm.js ln:26 newFriend', newFriend);
         axiosWithAuth()
             .post("/friends", newFriend)
             .then(res => {
                 console.log('AddFriendForm.js ln:28 res', res);
                 console.log('AddFriendForm.js ln:29 res', res.data);
-                setNewFriend({
-                    // ...this.state,
-                    friends: res.data
-                })
+                props.setFriends(
+                    // ...this.friends,
+                    // friends: res.data
+                    res.data
+                )
             })
             .catch(err => {
                 console.log(`Error AddFriendForm.js ln:38: `, err)
