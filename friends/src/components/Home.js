@@ -101,45 +101,48 @@ const Container = styled.div`
 `;
 
 export default function Home() {
-    return (
-        <Container>
-            <header>
-                <h1 id="hide">FRIENDS LIST</h1>
-                <nav>
-                    <span className="navspans">
-                        <Link to="/login">Login</Link>
-                    </span>
-                    <span className="navspans">
-                        <Link to="/">Dashboard</Link>
-                    </span>
-                    <span className="navspans">
-                        <Link to="/">My Profile</Link>
-                    </span>
-                    <span className="navspans">
-                        <Link to="/">Created By</Link>
-                    </span>
-                </nav>
-            </header>
-            <div className="whole">
-                <div className="main">
-                    <h3>
-                        Tired of being Lonely? <br></br> Well, Build a friend list!
-                    </h3>
-                    <h1>
-                        Welcome to
-                        <br />
-                        The Friend List Creator
-                    </h1>
-                    <div className="button-container">
-                        <Link to="/Signup">
-                            <button className="create-acctBtn">Signup</button>
-                        </Link>
-                        <Link to="/login">
-                            <button className="loginBtn">Login</button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </Container>
-    );
+  return (
+    <Container>
+      <header>
+        <h1 id="hide">FRIENDS LIST</h1>
+        <nav>
+          <span className="navspans">
+            <Link to="/login">Login</Link>
+          </span>
+          <span className="navspans">
+            <Link to="/">Dashboard</Link>
+          </span>
+          <span className="navspans">
+            <Link to="/">My Profile</Link>
+          </span>
+          <span className="navspans">
+            <Link to="/">Created By</Link>
+          </span>
+          <span className="navspans">
+            <Link to="/logout">Logout</Link>
+          </span>
+        </nav>
+      </header>
+      <div className="whole">
+        <div className="main">
+          <h3>
+            Tired of being Lonely? <br></br> Well, Build a friend list!
+          </h3>
+          <h1>
+            Welcome to
+            <br />
+            The Friend List Creator
+          </h1>
+          <div className="button-container">
+            <Link to="/Signup">
+              <button className="create-acctBtn">Signup</button>
+            </Link>
+            <Link to="/login">
+              <button className="loginBtn">Login</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </Container>
+  );
 }

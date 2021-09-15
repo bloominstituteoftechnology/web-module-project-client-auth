@@ -35,7 +35,7 @@ const AddFriendForm = (props) => {
                 })
             })
             .catch(err => {
-                console.log(`YO Error: `, err)
+                console.log(`Error AddFriendForm.js ln:38: `, err)
             })
 
     }

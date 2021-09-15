@@ -30,31 +30,34 @@ const FriendsList = () => {
 
     return (
         <Container>
-        <header>
-        <h1 id="hide">FRIENDS LIST</h1>
-        <nav>
-            <span className="navspans">
-                <Link to="/login">Login</Link>
-            </span>
-            <span className="navspans">
-                <Link to="/">Dashboard</Link>
-            </span>
-            <span className="navspans">
-                <Link to="/">My Profile</Link>
-            </span>
-            <span className="navspans">
-                <Link to="/">Created By</Link>
-            </span>
-        </nav>
-    </header>
-        <div className="friends-container">
-            {
-                friends.map(friend => {
-                    return <Friend key={friend.id} friend={friend} />
-                })
-            }
-            <AddFriendForm friends={friends}/>
-        </div>
+            <header>
+                <h1 id="hide">FRIENDS LIST</h1>
+                <nav>
+                    <span className="navspans">
+                        <Link to="/login">Login</Link>
+                    </span>
+                    <span className="navspans">
+                        <Link to="/">Dashboard</Link>
+                    </span>
+                    <span className="navspans">
+                        <Link to="/">My Profile</Link>
+                    </span>
+                    <span className="navspans">
+                        <Link to="/">Created By</Link>
+                    </span>
+                    <span className="navspans">
+                        <Link to="/logout">Logout</Link>
+                    </span>
+                </nav>
+            </header>
+            <div className="friends-container">
+                {
+                    friends.map(friend => {
+                        return <Friend key={friend.id} friend={friend} />
+                    })
+                }
+                <AddFriendForm friends={friends} />
+            </div>
         </Container>
     )
 }
