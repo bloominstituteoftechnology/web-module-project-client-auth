@@ -21,16 +21,13 @@ const AddFriendForm = (props) => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        // console.log('AddFriendForm.js ln:22 handeSubmit:', newFriend);
-        // addFriend()
-        console.log('AddFriendForm.js ln:26 newFriend', newFriend);
+        console.log('AddFriendForm.js ln:24 newFriend', newFriend);
         axiosWithAuth()
             .post("/friends", newFriend)
             .then(res => {
-                console.log('AddFriendForm.js ln:28 res', res);
-                console.log('AddFriendForm.js ln:29 res', res.data);
+                console.log('AddFriendForm.js ln:30 res', res);
+                console.log('AddFriendForm.js ln:31 res', res.data);
                 props.setFriends(
-                    // ...this.friends,
                     // friends: res.data
                     res.data
                 )

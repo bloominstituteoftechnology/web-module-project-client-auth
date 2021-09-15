@@ -4,7 +4,7 @@ import Friend from './Friend';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import AddFriendForm from './AddFriendForm';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 
@@ -59,8 +59,8 @@ const FriendsList = () => {
                 </div>
                 <div>
                     <Route render={(props) => {
-                        console.log('FriendsList.js ln:64 props', props);
-                        return <AddFriendForm friends={friends} setFriends={setFriends} />
+                        // console.log('FriendsList.js ln:62 props', props);
+                        return <AddFriendForm  setFriends={setFriends} />
                     }} />
 
                 </div>
