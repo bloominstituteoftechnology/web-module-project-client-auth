@@ -5,6 +5,8 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import Friend from "./Friend";
 import AddFriend from "./AddFriend";
 
+import "../App.css";
+
 const FriendsList = () => {
   const [friends, setFriends] = useState([]);
 
@@ -21,13 +23,13 @@ const FriendsList = () => {
 
   return (
     <div className="friendsList">
+      <div className="addFriend">
+        <AddFriend setFriends={setFriends} />
+      </div>
       <div className="friend">
         {friends.map((friend) => (
           <Friend key={friend.id} friend={friend} />
         ))}
-      </div>
-      <div>
-        <AddFriend />
       </div>
     </div>
   );

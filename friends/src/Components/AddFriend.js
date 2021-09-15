@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import axiosWithAuth from "../utils/axiosWithAuth";
+
 const AddFriend = (props) => {
   const [newFriend, setNewFriend] = useState({
-    id: Date.now(),
     name: "",
     age: "",
     email: "",
@@ -18,6 +19,15 @@ const AddFriend = (props) => {
 
   const addButton = (e) => {
     e.preventDefault();
+    axiosWithAuth()
+      .post("/friends", newFriend)
+      .then((res) => {
+        console.log(res);
+        props.setFriends((friends) => [...friends, newFriend]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
