@@ -3,6 +3,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import Friend from './Friend';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import AddFriendForm from './AddFriendForm';
 
 
 const FriendsList = () => {
@@ -52,6 +53,7 @@ const FriendsList = () => {
                     return <Friend key={friend.id} friend={friend} />
                 })
             }
+            <AddFriendForm friends={friends}/>
         </div>
         </Container>
     )
