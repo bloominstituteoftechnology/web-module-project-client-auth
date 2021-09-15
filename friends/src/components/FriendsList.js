@@ -62,6 +62,7 @@ const FriendsList = () => {
                         // console.log('FriendsList.js ln:62 props', props);
                         return <AddFriendForm  setFriends={setFriends} />
                     }} />
+                    {/* the code above permits passing statechange abilities down to AddFriendForm.js. A "return" must be used in "<Route/>" */}
 
                 </div>
                 <div className="friends-container">
