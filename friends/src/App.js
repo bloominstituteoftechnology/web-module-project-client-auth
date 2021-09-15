@@ -25,7 +25,7 @@ function App() {
       <div>
         <Switch>
           <ProtectedRoute path="/friendslist" component={FriendsList} />
-          <Route path="/logout" component={Logout} />
+          <ProtectedRoute path="/logout" component={Logout} />
           <Route path="/login" component={Login} />
           <Route path="/" component={Login} />
         </Switch>

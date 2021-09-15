@@ -22,7 +22,6 @@ const AddFriend = (props) => {
     axiosWithAuth()
       .post("/friends", newFriend)
       .then((res) => {
-        console.log(res);
         props.setFriends((friends) => [...friends, newFriend]);
       })
       .catch((err) => {
