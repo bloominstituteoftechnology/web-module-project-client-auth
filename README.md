@@ -84,4 +84,4 @@ Topics:
 ## Rick's pull req link
 - [Link](https://github.com/LambdaSchool/web-module-project-client-auth/pull/77)
 
-This project should server as a model for Build week. 
+This project should server as a model for Build week. By far it was one of my most rewarding projects due to my new found understanding of following the console.logs to narrow res.data to what I need. And it was a favoite because I managed to grapse passing state change abilith using <Route return/> which I employed between FriendList.js and AddFriendForm.js
