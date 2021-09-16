@@ -35,7 +35,7 @@ Topics:
   * **[POST]** * to `/api/logout`: removes a token from active use. Returns the inactive token. 
   * **[GET]** to `/api/friends`: returns the list of friends.
   * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
-  * **[POST]** * to `/api/friends`: Adds in a new friend.
+  * **[POST]** * to `/api/friends`: Adds in a new friend.....
 
 #### Build the App!
 * Add a route for a login page and build out a simple login form with username and password inputs and a submit button (design this however you would like).
