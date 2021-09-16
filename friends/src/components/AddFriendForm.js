@@ -25,8 +25,8 @@ const AddFriendForm = (props) => {
         axiosWithAuth()
             .post("/friends", newFriend)
             .then(res => {
-                console.log('AddFriendForm.js ln:30 res', res);
-                console.log('AddFriendForm.js ln:31 res', res.data);
+                // console.log('AddFriendForm.js ln:30 res', res);
+                // console.log('AddFriendForm.js ln:31 res', res.data);
                 props.setFriends(
                     // friends: res.data
                     res.data
