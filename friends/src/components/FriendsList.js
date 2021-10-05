@@ -23,9 +23,17 @@ export class FriendsList extends Component {
         })
     }
     addFriend = (friend) => {
-        this.setState({
-            ...this.state,
-            friends: [...this.state.friends, friend]
+        // this.setState({
+        //     ...this.state,
+        //     friends: [...this.state.friends, friend]
+        // })
+        axiosWithAuth().post('/friends', friend)
+        .then(res => {
+            console.log(res)
+            this.getData()
+        })
+        .catch(err => {
+            console.log(err.response)
         })
     }
     render() {
