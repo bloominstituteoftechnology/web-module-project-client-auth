@@ -9,16 +9,17 @@ const FriendForm = (props) => {
     })
     const onChange = (e) => {
         setFriend({
-            ...this.state,
+            ...friend,
             [e.target.name]: e.target.value
         })
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.addfriend({
+        const newFriend = {
             ...friend,
-            id: Date.now(),
-        })
+            id: Date.now()
+        }
+        props.addFriend(newFriend)
     }
     return (
         <div>
@@ -32,6 +33,7 @@ const FriendForm = (props) => {
 
                <label htmlFor='age'>Age</label>
                <input type='text' name='age' id='age' value={friend.age} onChange={onChange}/>
+               <button>submit</button>
                </form> 
         </div>
     )
