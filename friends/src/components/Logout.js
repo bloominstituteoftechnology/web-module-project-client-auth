@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 const Logout = () => {
 
-    
-    axios.post('http://localhost:5000/api/logout', {
-        headers: {
-            authorization: localStorage.getItem('token')
-        }
-    })
+    axiosWithAuth().post('/logout')
         .then((res) => {
             console.log(res.data)
             localStorage.removeItem('token');
-            this.props.history.push('/login')        })
+            window.location.pathname = '/login'        })
         .catch((err) => {
             console.log(err.response)
         })

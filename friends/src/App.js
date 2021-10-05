@@ -5,6 +5,7 @@ import Login from './components/Login';
 import FriendsList from './components/FriendsList'
 import Logout from './components/Logout'
 import './App.css';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         </li>
       </ul>
       <Switch>
-        <Route exact path='/protected' component={FriendsList}/>
+        <PrivateRoute exact path='/protected' component={FriendsList}/>
         <Route path='/logout' component={Logout}/>
         <Route path='/login' component={Login}/>
         <Route path='/' component={Login}/>

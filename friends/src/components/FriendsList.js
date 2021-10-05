@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 import FriendForm from './FriendForm'
 
 export class FriendsList extends Component {
@@ -10,18 +11,14 @@ export class FriendsList extends Component {
         this.getData()
     }
     getData = () => {
-        axios.get('http://localhost:5000/api/friends', {
-            headers: {
-                authorization: localStorage.getItem('token')
-            }
-        })
-        .then((res) => {
+        axiosWithAuth().get('/friends')
+            .then((res) => {
             console.log(res.data)
             this.setState({
                 friends: res.data
             })
         })
-        .catch((err) => {
+            .catch((err) => {
             console.log(err.response)
         })
     }
