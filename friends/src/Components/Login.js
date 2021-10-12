@@ -39,20 +39,21 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
+		<div>
+			<h1>Login Below</h1>
         <form onSubmit={this.login}>
           <input
             type="text"
             name="username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
-          />
+          /><br/>
           <input
             type="password"
             name="password"
             value={this.state.credentials.password}
             onChange={this.handleChange}
-          />
+          /><br/>
           <button>Log in</button>
         </form>
       </div>
