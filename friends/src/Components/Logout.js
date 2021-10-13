@@ -8,7 +8,7 @@ const Logout = (props) => {
             .post('http://localhost:5000/api/logout')
             .then(resp=>{
                 localStorage.removeItem("token");
-                props.history.push('/');
+                props.history.push('/login');
             }).catch(err=> {
                 console.log(err);
             })

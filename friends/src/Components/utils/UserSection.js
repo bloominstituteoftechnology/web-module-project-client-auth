@@ -1,6 +1,6 @@
 import React from "react";
 
 const UserSection = () => {
-	return (<p>Welcome {localStorage.getItem("username")}</p>);
+	return (<p>Welcome Lambodian</p>);
 }
 export default UserSection;
