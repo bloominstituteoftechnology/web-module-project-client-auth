@@ -1,5 +1,16 @@
 # Auth Friends
 
+- [Auth Friends](#auth-friends)
+  - [Instructions](#instructions)
+    - [Task 1: Set Up](#task-1-set-up)
+      - [Initialize Project](#initialize-project)
+    - [Task 2: MVP](#task-2-mvp)
+      - [Project Description](#project-description)
+      - [Build the App!](#build-the-app)
+    - [Task 3: Stretch Problems](#task-3-stretch-problems)
+  - [Submission Format](#submission-format)
+  - [Rick's pull req link](#ricks-pull-req-link)
+
 Topics:
 
 * React Router
@@ -34,7 +45,7 @@ Topics:
   * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'lambda', password: 'school' }`
   * **[POST]** * to `/api/logout`: removes a token from active use. Returns the inactive token. 
   * **[GET]** to `/api/friends`: returns the list of friends.
-  * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
+  * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 for example).
   * **[POST]** * to `/api/friends`: Adds in a new friend.
 
 #### Build the App!
@@ -68,3 +79,9 @@ Topics:
 
 ## Submission Format
 * [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+
+
+## Rick's pull req link
+- [Link](https://github.com/LambdaSchool/web-module-project-client-auth/pull/77)
+
+This project should server as a model for Build week. By far it was one of my most rewarding projects due to my new found understanding of following the console.logs to narrow res.data to what I need. And it was a favoite because I managed to grapse passing state change abilith using <Route return/> which I employed between FriendList.js and AddFriendForm.js
