@@ -25,8 +25,8 @@ class App extends Component {
               </li>
             </ul>
             <Switch>
-              <Route exact path="/" component={LandingPage} />
               <ProtectedRoute path="/home" component={Home} />
+              <Route path="/" component={LandingPage} />
             </Switch>
           </nav>
         </div>
