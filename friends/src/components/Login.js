@@ -1,13 +1,14 @@
 import { useState } from 'react'
-
+import axios from 'axios'
 
 const Login = () => {
 
 
 	const [state, setState] = useState({
+		
+			username: '',
+			password: ''
 
-		name: '',
-		password: ''
 	}
 	)
 
@@ -20,6 +21,11 @@ const Login = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		axios.post('http://localhost:5000/api/login', state)
+			.then(res => {localStorage.setItem('token', res.data.payload)})
+			.catch(err => { console.log(err) })
+		
+
 
 	}
 
@@ -28,7 +34,7 @@ const Login = () => {
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='name'>
 					<input
-						name='name'
+						name='username'
 						value={state.name}
 						placeholder='userName'
 						onChange={handleChange}
