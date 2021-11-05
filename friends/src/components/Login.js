@@ -26,7 +26,7 @@ const Login = () => {
 		axios.post('http://localhost:5000/api/login', state)
 			.then(res => {localStorage.setItem('token', res.data.payload)})
 			.catch(err => { console.log(err) })
-		history.push('/friendsList')
+		history.push('/protected')
 		setState({
 			username:'',
 			password:''
