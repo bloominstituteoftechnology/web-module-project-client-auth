@@ -1,6 +1,6 @@
 import Login from './components/Login'
 import { Link, Route, Switch } from 'react-router-dom'
-import PrivateRoute from './components/FriendsList'
+import ProtectedRoute from './components/ProtectedRoute'
 import FriendsList from './components/FriendsList'
 
 import './App.css';
@@ -15,7 +15,7 @@ function App() {
             <Route path='/login'>
               <Login />
             </Route>
-            <PrivateRoute />
+            <ProtectedRoute path='/protected' component={FriendsList}/>
             <Route path='/'></Route>
           </Switch>
         </div>

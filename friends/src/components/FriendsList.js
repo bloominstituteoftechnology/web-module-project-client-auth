@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import Friends from './Friends'
-import ProtectedRoute from './ProtectedRoute'
 
 
 const FriendsList = () => {
