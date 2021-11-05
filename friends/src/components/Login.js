@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 
 const Login = () => {
 
 
+	const history = useHistory()
 	const [state, setState] = useState({
 		
 			username: '',
@@ -24,9 +26,11 @@ const Login = () => {
 		axios.post('http://localhost:5000/api/login', state)
 			.then(res => {localStorage.setItem('token', res.data.payload)})
 			.catch(err => { console.log(err) })
-		
-
-
+		history.push('/friendsList')
+		setState({
+			username:'',
+			password:''
+		})
 	}
 
 	return (
@@ -35,7 +39,7 @@ const Login = () => {
 				<label htmlFor='name'>
 					<input
 						name='username'
-						value={state.name}
+						value={state.username}
 						placeholder='userName'
 						onChange={handleChange}
 					/>
