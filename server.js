@@ -79,7 +79,7 @@ app.post('/api/login', (req, res) => {
 });
 
 app.post('/api/logout', authenticator, (req, res) => {
-  req.loggedIn = false;
+  req.loggedIn = true;
   res.status(200).json({
     payload: token
   });
