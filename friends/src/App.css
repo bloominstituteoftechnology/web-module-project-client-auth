@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: -5vw;
+}
+a {
+  background-color: goldenrod;
+  color: black;
+  width: 20%;
+  height: 2%;
+  border-radius: 10px;
+  margin-bottom: 1%;
+  border: black 1px solid;
+}
+a:hover {
+  background-color: green;
+  color: goldenrod;
+  border: blue 1px solid;
+}
+.welcome {
+  background-color: coral;
+  width: 100%;
+  font-size: 150%;
+  box-shadow: darkgoldenrod 1px 5px 20px 1px;
+}
