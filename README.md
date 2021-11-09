@@ -18,7 +18,7 @@ Topics:
 * Run `npm install` inside the root directory of this project to install dependencies for the API server.
 * Run `npm start` to start the API server.
 * `cd` into the _friends_ folder.
-* Run `npm start` to start the client code.
+* Run `npm start` to start the client code
 
 ### Task 2: MVP
 
