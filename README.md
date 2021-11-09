@@ -1,4 +1,4 @@
-# Auth Friends
+# Auth Friends (Checklist)
 
 Topics:
 
@@ -15,10 +15,10 @@ Topics:
 
 #### Initialize Project
 
-* Run `npm install` inside the root directory of this project to install dependencies for the API server.
-* Run `npm start` to start the API server.
-* `cd` into the _friends_ folder.
-* Run `npm start` to start the client code.
+ Run `npm install` inside the root directory of this project to install dependencies for the API server.
+[x] Run `npm start` to start the API server.
+[x] `cd` into the _friends_ folder.
+[x] Run `npm start` to start the client code.
 
 ### Task 2: MVP
 
@@ -37,7 +37,7 @@ Topics:
   * **[POST]** * to `/api/friends`: Adds in a new friend.
 
 #### Build the App!
-* Add a route for a login page and build out a simple login form with username and password inputs and a submit button (design this however you would like).
+[x] Add a route for a login page and build out a simple login form with username and password inputs and a submit button (design this however you would like).
 * The login function should save the returned token to localStorage. You can setup `isLoading` state in your Login component, and show a spinner on your form or in your button while the login request is happening.
 * When the request returns, save the token to `localStorage`, then use the history object in your Login component to navigate your user to your FriendsList route
 * Create a `<PrivateRoute />` component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.
