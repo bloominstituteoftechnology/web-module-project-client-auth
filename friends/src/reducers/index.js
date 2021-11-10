@@ -18,7 +18,8 @@ const reducer = (state = initialState, action)=>{
           return({
             ...state,
             friends: action.payload,
-            isFetching:false
+            isFetching:false,
+            loggedIn:true
           });
         case(LOG_IN):
           return({
