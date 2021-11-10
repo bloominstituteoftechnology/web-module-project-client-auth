@@ -8,6 +8,9 @@ import Logout from "./components/Logout";
 
 
 function App() {
+  const isLoggedIn = localStorage.getItem('token');
+  const username = localStorage.getItem('username');
+
   return (
     <Router>
     <div className="App">
@@ -19,7 +22,12 @@ function App() {
             <Link to="/logout">Logout</Link>
           </li>
           <li>
-          <Link to="/protected">Protected Page</Link>
+            {isLoggedIn && 
+            <div>
+            <Link to="/protected">Protected Page</Link>
+            <p>Welcome to the page:</p> 
+            <Friends />
+            </div>}
           </li>
       </ul>
    

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import axiosWithAuth from "../utils/axiosWithAuth";
 
 const Logout = (props)=> {
+    console.log(props)
     const {push} = useHistory();
 
     useEffect(()=> {
