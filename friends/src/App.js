@@ -9,25 +9,20 @@ import Logout from './components/Logout';
 import { connect } from 'react-redux';
 
 const App= (props) => {
-  console.log('props from app:',props)
+  const loggedIn = props.state.loggedIn
+
   return (
     <div className="App">
       <Router>
-        <ul>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/logout">Logout</Link>
-            </li>
-            <li>
-              <Link to="/friends">Friends</Link>
-            </li>
-            <li>
-              <Link to="/newfriend">Add Friend</Link>
-            </li>
-          </ul>
-          <h2>Client Auth Project</h2>
+        <header className='header'>
+          <h1>Get'chya Fraynds</h1>
+          <nav>
+              {loggedIn && <Link className='linky' to="/friends">Friends</Link>}
+              {loggedIn && <Link className='linky' to="/newfriend">Add Friend</Link>}
+              {!loggedIn && <Link className='linky blinders' to="/login">Login</Link>}
+              {loggedIn && <Link className='linky blinders' to="/logout">Logout</Link>}
+          </nav>
+        </header>
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/logout" component={Logout} />

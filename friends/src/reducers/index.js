@@ -1,8 +1,9 @@
-import { FETCH_START, SET_FRIENDS } from './../actions';
+import { FETCH_START, SET_FRIENDS, LOG_IN, LOG_OUT } from './../actions';
 
 export const initialState = {
     isFetching: false,
-    friends:[]
+    friends:[],
+    loggedIn:false
 }
 
 const reducer = (state = initialState, action)=>{
@@ -18,6 +19,17 @@ const reducer = (state = initialState, action)=>{
             ...state,
             friends: action.payload,
             isFetching:false
+          });
+        case(LOG_IN):
+          return({
+            ...state,
+            loggedIn:true
+          });
+        case(LOG_OUT):
+          console.log('log out reached')
+          return({
+            ...state,
+            loggedIn:false
           });
         default:
             return state;

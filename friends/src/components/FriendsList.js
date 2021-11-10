@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axiosWithAuth from '../utilitites/axiosWithAuth';
 import { setFriends } from '../actions';
 import Friend from './Friend';
+import { logIn } from '../actions';
 
 const FriendsList = (props) =>{
     useEffect(()=> {
@@ -10,6 +11,7 @@ const FriendsList = (props) =>{
             .get('/friends')
             .then(resp=>{
                 props.dispatch(setFriends(resp.data))
+                props.dispatch(logIn())
             })
     }, []);
 

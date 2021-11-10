@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { logIn } from '../actions';
 import axios from 'axios';
 
 const Login = (props) =>{
@@ -20,6 +21,7 @@ const Login = (props) =>{
           .then(resp=> {
             localStorage.setItem('token', resp.data.payload);
             props.history.push('/friends');
+            props.dispatch(logIn())
           })
           .catch(err=> {
             console.log(err);

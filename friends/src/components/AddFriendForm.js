@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import axiosWithAuth from '../utilitites/axiosWithAuth';
 import { setFriends } from '../actions';
+import { logIn } from '../actions';
 
 const AddFriendForm = (props) => {
-    // console.log('props from friend form:', props)
+    useEffect(()=> {
+        props.dispatch(logIn())
+    }, []);
 
     const [state, setState] = useState({
         id: Math.random(),
@@ -42,22 +45,24 @@ const AddFriendForm = (props) => {
     
 
     return(
-    <section>
+    <section className='form-container'>
         <h2>Add Friend</h2>
         <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label>Name:</label><br/>
-                <input onChange={handleChange} value={state.name} name="name" id="name" />
+            <div className="form-grouped">
+                <div className="form-group">
+                    <label>Name:</label><br/>
+                    <input onChange={handleChange} value={state.name} name="name" id="name" />
+                </div>
+                <div className="form-group">
+                    <label>Age:</label><br/>
+                    <input onChange={handleChange} value={state.age} name="age" id="age" />
+                </div>
+                <div className="form-group">
+                    <label>Email:</label><br/>
+                    <input onChange={handleChange} value={state.email} name="email" id="email" />
+                </div>
+                <button>Submit Friend</button>
             </div>
-            <div className="form-group">
-                <label>Age:</label><br/>
-                <input onChange={handleChange} value={state.age} name="age" id="age" />
-            </div>
-            <div className="form-group">
-                <label>Email:</label><br/>
-                <input onChange={handleChange} value={state.email} name="email" id="email" />
-            </div>
-            <button>Submit Friend</button>
         </form>
     </section>
     );
