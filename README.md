@@ -47,7 +47,7 @@ Topics:
 
 [x] Create a protected route for your friends list. Remember, if the user isn't logged in, navigating to this protected route will redirect them to the login page.
 
-* In your FriendsList component, rendered with `<PrivateRoute />`, you will create a list of your friends that you get from the API.
+[x] In your FriendsList component, rendered with `<PrivateRoute />`, you will create a list of your friends that you get from the API.
 
 **Adding New Friends**
 * Create a form to collects data for a new friend.
@@ -63,7 +63,8 @@ Topics:
 }
 ```
 
-* If you'd like, you can create multiple "view" components for your routes. You could have a component who's sole purpose is to render the login form; one for a form for updating a user; another component who's sole purpose is for creating users; and then another component who's sole purpose is to delete a user.
+[x] If you'd like, you can create multiple "view" components for your routes. You could have a component who's sole purpose is to render the login form; one for a form for updating a user; another component who's sole purpose is for creating users; and then another component who's sole purpose is to delete a user.
+  Added Logout component and axiosWithAuth
 * It really is up to you how you build this project. I suggest writing down the flow you want to follow, and then writing down each individual piece you need for each step in the flow so that this process doesn't feel as overwhelming.
 
 ### Task 3: Stretch Problems
