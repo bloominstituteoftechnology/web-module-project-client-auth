@@ -1,0 +1,44 @@
+.user-card {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: grey;
+    border-radius: 6px;
+    width: 50%;
+}
+
+.user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;    
+    background-position: center;
+    background-size: cover;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.user-card h2 {
+    font-size: 2.5rem;
+    
+}
+
+.user-inputs {
+    margin: 1%;
+}
+
+.user-card button {
+    margin: 1.5%;
+}
+
+.special-p {
+    width: 30%;
+}
