@@ -1,5 +1,17 @@
+*{
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background-color:#ffffff;
+
+}
+body{
+  background-color: #fca311;
 }
 
 .App-logo {
@@ -14,7 +26,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #e5e5e5;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,3 +48,104 @@
     transform: rotate(360deg);
   }
 }
+
+.header{
+  display:flex;
+  width:100%;
+  justify-content:space-between;
+  background-color: #14213d;
+}
+.header h1{
+  width:30%;
+  display:flex;
+  color:white;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  text-decoration:underline;
+  text-decoration-color: #fca311;
+}
+nav{
+  display:flex;
+  justify-content:space-around;
+  align-items: center;
+  height:60px;
+}
+
+.linky{
+  text-decoration:none;
+  width:130px;
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:40px;
+  margin: 0px 20px;
+}
+.linky:hover{
+  text-decoration: underline;
+  text-decoration-color:#fca311
+}
+
+.blinders{
+  border-radius:30px;
+  background-color:white;
+  color:#14213d;;
+}
+
+.friend-card{
+  width:300px;
+  height:300px;
+  background-color:#14213d;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  margin:20px;
+}
+.friend-card:hover{
+  text-decoration:underline;
+  text-decoration-color:#fca311;
+  border:3px solid #fca311;
+}
+
+.friendlist{
+  display:flex;
+  flex-wrap:wrap;
+  background-color: white;
+  width:100%;
+}
+
+.form-container{
+  width:300px;
+  height:300px;
+  background-color:#14213d;
+  color:white;
+  display:flex;
+  align-items:center;
+  flex-direction:column;
+  justify-content: space-around;
+  margin:20px;
+}
+.form-container:hover{
+  border:1px solid #fca311;
+}
+.form-grouped{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  height:200px;
+}
+.form{
+  width:300px;
+  height:300px;
+  background-color:#14213d;
+  color:white;
+  display:flex;
+  align-items:center;
+  flex-direction:column;
+  margin:20px;
+  justify-content: space-around;
+}
+
