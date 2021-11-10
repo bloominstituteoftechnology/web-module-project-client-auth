@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const initialState = {
     credential: {
@@ -12,26 +13,28 @@ const initialState = {
 
 
 
-const Login = () => {
-
+const Login = (props) => {
 const [credential, setCredential] = useState(initialState)
+let history = useHistory();
 
 
-
-// const handleChange = (e) => {
-//     setCredential({
-//         ...credential,
-//         [e.target.name]: e.target.value
+const handleChange = (e) => {
+    setCredential({
+        ...credential,
+        [e.target.name]: e.target.value
         
-//     })
+    })
 
-// };
+};
 
 const handleSubmt = (e) => {
     e.preventDefault();
     axios.post(`http://localhost:5000/api/login`, credential)
     .then(res => {
-        console.log(res)
+        localStorage.setItem('token', res.data.payload)
+        history.push('/friends')
+    }).catch(err => {
+        console.error(err)
     })
 }
 
@@ -41,13 +44,15 @@ const handleSubmt = (e) => {
            <input
            type='text'
            placeholder='username'
-        //    onChange={handleChange}
+           onChange={handleChange}
+           name='username'
            value={credential.username}
            /><br/>
            <input className='password'
            type='password'
            placeholder='password' 
-        //    onChange={handleChange}
+           onChange={handleChange}
+           name='password'
            value={credential.password}/><br/><br/>
            <Link className='forgot' to='/forgoten-password'>forgot password?</Link><br/>
            <button className='button'>Login</button>
