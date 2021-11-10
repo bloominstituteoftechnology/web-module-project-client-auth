@@ -16,9 +16,8 @@ function App() {
     <Router>
 
       <div className="App">
-      <Header /> 
-        <h1> hi </h1>
-          
+      <Header />
+                  
         <Routes>
           <Route path="/login" element={ <Login />} />
           <Route path="/logout" element={ <Logout />} />
