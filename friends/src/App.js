@@ -1,17 +1,46 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { Route} from 'react-router-dom';
+import { Switch, useHistory} from 'react-router';
+import HomePage from './components/HomePage';
+import Login from './components/Login';
+import AddFriend from './components/AddFriend';
 
 
-const Login = ()=> {
-  return (<h2>Login</h2>)
-}
+
 
 function App() {
+
+  const history = useHistory()
+
+ 
+  const accessToken = localStorage.getItem('token')
+  
+
+  if(!accessToken){
+    history.push("/login")
+  }else{
+    history.push("/homepage")
+  }
+
+
   return (
-    <div className="App">
-      <h2>Client Auth Project</h2>
-    </div>
+   
+      <div className="App">
+        <h2>Client Auth Project</h2>
+        <Switch>
+          <Route path="/login">
+              <Login/>
+          </Route>
+          <Route path="/homepage">
+              <HomePage/>
+          </Route>
+          <Route path="/addFriend">
+              <AddFriend/>
+          </Route>
+        </Switch>
+      </div>
+   
   );
 }
 
