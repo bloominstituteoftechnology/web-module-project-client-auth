@@ -107,6 +107,7 @@ nav{
 .friend-card:hover{
   text-decoration:underline;
   text-decoration-color:#fca311;
+  border:3px solid #fca311;
 }
 
 .friendlist{
@@ -126,6 +127,9 @@ nav{
   flex-direction:column;
   justify-content: space-around;
   margin:20px;
+}
+.form-container:hover{
+  border:1px solid #fca311;
 }
 .form-grouped{
   display:flex;
