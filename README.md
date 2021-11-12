@@ -70,3 +70,8 @@ Each friend object has the format:
 #### Build the a PrivateRoute component
 * [ ] Create a `<PrivateRoute />` component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.
 * [ ] Use your protected route to restrict access to your `/friends` and `/friends/add` routes.
+
+### Task 3: Stretch goals
+- [ ] Add in a modularized way to access protected endpoints using axiosWithAuth.
+- [ ] Add in a protected page and route that allows shows an information friends information. Use url params to get the id for this friend.
+- [ ] Style as you wish.
