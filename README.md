@@ -38,24 +38,25 @@ Each friend object has the format:
 * [ ] Clone your OWN version of the repository in your terminal
 * [ ] cd into the project base directory `cd web-module-project-client-auth`
 * [ ] Download project dependencies by running `npm install`
+* [ ] cd into the `server` folder.
 * [ ] Start up the app using `npm start` to start the server.
 * [ ] cd into the `friends` folder.
 * [ ] Run `npm start` to start the client code.
 
 ### Task 2: Project Requirements
 #### Build the login component
-* [ ] Build out a simple login form component with username and password inputs and a submit button.
+* [ ] Use the [mockup provided](./login_mockup.png) to build out a simple login component.
 * [ ] In `App.js`, add a route to allow this component to be displayed when navigating to `/` or `/login`
 * [ ] When submitting your login form, save the token returned to localStorage and redirect to the FriendsList route.
 
 #### Build the friendslist component
-* [ ] Build out a simple list component made to display all friends returned from the api.
+* [ ] Use the [mockup provided](./friendslist_mockup.png) to build out a simple list component made to display all friends.
 * [ ] When the component mounts, make a call to the api retrieving all friends.
 * [ ] In `App.js`, add a route to allow this component to be displayed when navigating to `/friends`
 * [ ] In your login component, add code to your submission code the ability to redirect to your friendslist component.
 
 #### Build the addFriends component
-* [ ] Build out a simple component allowing you to collect data to add in a new friend.
+* [ ] Use the [mockup provided](./addfriends_mockup.png) to build out a simple component allowing you to collect data to add in a new friend.
 * [ ] The component should include a form with inputs for each friend attribute and a submit button.
 * [ ] When submitting the form, make a call to the approprate api endpoint with your new friend data.
 * [ ] In `App.js`, add a route to allow this component to be displayed when navigating to `/friends/add`.
