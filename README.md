@@ -1,34 +1,17 @@
-# Auth Friends
+# Client Auth Module Project: Auth Friends
 
-Topics:
+This module explored the clients-side authenication using auth-tokens. During the module you studied how the login, request and logout process works when using authentication and how to restrict access to certain route to logged in users. IN this project, you will practice each of these skills.
 
-* React Router
-* Protected Routes
-* `axios` package
-* AJAX
-* Promises
-* Authentication tokens
+## Objectives
+- Understand how token based authentication works
+- Setup a login screen and successfully save an auth token.
+- Use an auth token to make requests.
 
-## Instructions
+## Introduction
+In this project, you will connect to a local server with endpoints allowing you to work with interact with data from the cast of Friends. Using this data as a 
+base, you will build functioning login, display and add component pages to your application.
 
-### Task 1: Set Up
-
-#### Initialize Project
-
-* Run `npm install` inside the root directory of this project to install dependencies for the API server.
-* Run `npm start` to start the API server.
-* `cd` into the _friends_ folder.
-* Run `npm start` to start the client code.
-
-### Task 2: MVP
-
-#### Project Description
-
-* There is an API built that has authentication built into it. The API holds a list of friends and lets you add, edit, or remove friends from that list. 
-* All of the API endpoints (except the login endpoint) are considered "protected", meaning you have to make the request with an authentication token in the header or the API will send back a `401` error. 
-* Take your examples from the guided project and use them to build a more sophisticated application. Have fun!
-* Once your server is up and running, the URL you'll be able to hit from within your app is `http://localhost:5000`. You will however need an authentication header on all the calls except the login call.
-* Take a look at the endpoints that our API has to offer in `server.js`.
+The included API holds a list of friends and lets you add, edit, or remove friends from that list. All of the API endpoints (except the login endpoint) are considered "protected", meaning you have to make the request with an authentication token in the header or the API will send back a `401` error. Take a look at the endpoints that our API has to offer in `server.js`.
 
   * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'lambda', password: 'school' }`
   * **[POST]** * to `/api/logout`: removes a token from active use. Returns the inactive token. 
@@ -36,19 +19,7 @@ Topics:
   * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
   * **[POST]** * to `/api/friends`: Adds in a new friend.
 
-#### Build the App!
-* Add a route for a login page and build out a simple login form with username and password inputs and a submit button (design this however you would like).
-* The login function should save the returned token to localStorage. You can setup `isLoading` state in your Login component, and show a spinner on your form or in your button while the login request is happening.
-* When the request returns, save the token to `localStorage`, then use the history object in your Login component to navigate your user to your FriendsList route
-* Create a `<PrivateRoute />` component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.
-* Create a protected route for your friends list. Remember, if the user isn't logged in, navigating to this protected route will redirect them to the login page.
-* In your FriendsList component, rendered with `<PrivateRoute />`, you will create a list of your friends that you get from the API.
-
-**Adding New Friends**
-* Create a form to collects data for a new friend.
-* Make a POST request to add a friend to the database
-* Each `friend` item that is in the `friends` array should have the following format:
-
+Each friend object has the format:
 ```js
 {
   id: 1
@@ -58,9 +29,43 @@ Topics:
 }
 ```
 
-* If you'd like, you can create multiple "view" components for your routes. You could have a component who's sole purpose is to render the login form; one for a form for updating a user; another component who's sole purpose is for creating users; and then another component who's sole purpose is to delete a user.
-* It really is up to you how you build this project. I suggest writing down the flow you want to follow, and then writing down each individual piece you need for each step in the flow so that this process doesn't feel as overwhelming.
 
-### Task 3: Stretch Problems
-* Style the friends list and the input field and make everything look nice.
-* Expand the number of properties that you put on each friend object. Feel free to remove the dummy data on the server or modify it in any way.
+***Make sure to complete your tasks one at a time and complete test each task before proceding forward.***
+
+## Instructions
+### Task 1: Project Set Up
+* [ ] Create a forked copy of this project.
+* [ ] Clone your OWN version of the repository in your terminal
+* [ ] cd into the project base directory `cd web-module-project-client-auth`
+* [ ] Download project dependencies by running `npm install`
+* [ ] Start up the app using `npm start` to start the server.
+* [ ] cd into the `friends` folder.
+* [ ] Run `npm start` to start the client code.
+
+### Task 2: Project Requirements
+#### Build the login component
+* [ ] Build out a simple login form component with username and password inputs and a submit button.
+* [ ] In `App.js`, add a route to allow this component to be displayed when navigating to `/` or `/login`
+* [ ] When submitting your login form, save the token returned to localStorage and redirect to the FriendsList route.
+
+#### Build the friendslist component
+* [ ] Build out a simple list component made to display all friends returned from the api.
+* [ ] When the component mounts, make a call to the api retrieving all friends.
+* [ ] In `App.js`, add a route to allow this component to be displayed when navigating to `/friends`
+* [ ] In your login component, add code to your submission code the ability to redirect to your friendslist component.
+
+#### Build the addFriends component
+* [ ] Build out a simple component allowing you to collect data to add in a new friend.
+* [ ] The component should include a form with inputs for each friend attribute and a submit button.
+* [ ] When submitting the form, make a call to the approprate api endpoint with your new friend data.
+* [ ] In `App.js`, add a route to allow this component to be displayed when navigating to `/friends/add`.
+
+#### Build a logout button
+* [ ] Build out a simple component allowing you to logout of your application cleanly.
+* [ ] The component should make a call to the logout endpoint and remove the token on local storage by default.
+* [ ] In `App.js`, add a route to allow this component to be displayed when navigating to `/logout`.
+* [ ] In `App.js`, create a navigation bar that allows the user to redirect to logout, friendslist or add friend.
+
+#### Build the a PrivateRoute component
+* [ ] Create a `<PrivateRoute />` component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.
+* [ ] Use your protected route to restrict access to your `/friends` and `/friends/add` routes.
