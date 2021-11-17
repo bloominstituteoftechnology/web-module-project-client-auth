@@ -1,26 +1,45 @@
+import axios from "axios"
 import React, { useState } from "react"
 
 const initialValues = { username: "", password: "" }
 
-const [formValues, setFormValues] = useState({ username: "", password: "" })
-
-const handleChanges = (e) => {}
-
 const Login = () => {
+  const [formValues, setFormValues] = useState(initialValues)
+
+  const handleChanges = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios
+      .get("http://localhost:5000/api/login")
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="username">Username</label>
       <input
         id="username"
+        name="username"
         value={formValues.username}
         onChange={handleChanges}
       />
-      <label htmlForf="password">Password</label>
+      <label htmlFor="password">Password</label>
       <input
         id="password"
-        value={formValues.username}
+        name="password"
+        type="password"
+        value={formValues.password}
         onChange={handleChanges}
       />
+      <button>Submit</button>
     </form>
   )
 }
