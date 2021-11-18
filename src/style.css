@@ -1,0 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+html, body, #root {
+    margin: 0px;
+    height: 100%;
+    background: #eeeeee;
+    font-family: Lato;
+}
+
+label {
+    display:block;
+}

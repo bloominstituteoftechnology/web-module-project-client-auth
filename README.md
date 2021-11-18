@@ -1,6 +1,6 @@
 # Client Auth Module Project: Auth Friends
 
-This module explored the clients-side authenication using auth-tokens. During the module you studied how the login, request and logout process works when using authentication and how to restrict access to certain route to logged in users. IN this project, you will practice each of these skills.
+This module explored the clients-side authentication using auth-tokens. During the module you studied how the login, request and logout process works when using authentication and how to restrict access to certain route to logged in users. IN this project, you will practice each of these skills.
 
 ## Objectives
 - Understand how token based authentication works
@@ -13,7 +13,7 @@ base, you will build functioning login, display and add component pages to your 
 
 The included API holds a list of friends and lets you add, edit, or remove friends from that list. All of the API endpoints (except the login endpoint) are considered "protected", meaning you have to make the request with an authentication token in the header or the API will send back a `401` error. Take a look at the endpoints that our API has to offer in `server.js`.
 
-  * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'lambda', password: 'school' }`
+  * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'Bloom', password: 'Tech' }`
   * **[POST]** * to `/api/logout`: removes a token from active use. Returns the inactive token. 
   * **[GET]** to `/api/friends`: returns the list of friends.
   * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
@@ -51,14 +51,14 @@ Each friend object has the format:
 
 #### Build the friendslist component
 * [ ] Use the [mockup provided](./friendslist_mockup.png) to build out a simple list component made to display all friends.
-* [ ] When the component mounts, make a call to the api retrieving all friends.
+* [ ] When the component mounts, make a call to the api retrieving all friends. Remember that this is a protected route.
 * [ ] In `App.js`, add a route to allow this component to be displayed when navigating to `/friends`
 * [ ] In your login component, add code to your submission code the ability to redirect to your friendslist component.
 
 #### Build the addFriends component
 * [ ] Use the [mockup provided](./addfriends_mockup.png) to build out a simple component allowing you to collect data to add in a new friend.
 * [ ] The component should include a form with inputs for each friend attribute and a submit button.
-* [ ] When submitting the form, make a call to the approprate api endpoint with your new friend data.
+* [ ] When submitting the form, make a call to the approprate api endpoint with your new friend data. Remember that this is a protected route.
 * [ ] In `App.js`, add a route to allow this component to be displayed when navigating to `/friends/add`.
 
 #### Build a logout button
