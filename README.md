@@ -11,7 +11,7 @@ This module explored the clients-side authentication using auth-tokens. During t
 In this project, you will connect to a local server with endpoints allowing you to work with interact with data from the cast of Friends. Using this data as a 
 base, you will build functioning login, display and add component pages to your application.
 
-The included API holds a list of friends and lets you add, edit, or remove friends from that list. All of the API endpoints (except the login endpoint) are considered "protected", meaning you have to make the request with an authentication token in the header or the API will send back a `401` error. Take a look at the endpoints that our API has to offer in `server.js`.
+The included API holds a list of friends and lets you add, edit, or remove friends from that list. All of the API endpoints (except the login endpoint) are considered "protected", meaning you have to make the request with an authentication token in the header or the API will send back a `401` error. 
 
   * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'Bloom', password: 'Tech' }`
   * **[POST]** * to `/api/logout`: removes a token from active use. Returns the inactive token. 
@@ -37,11 +37,10 @@ Each friend object has the format:
 * [ ] Create a forked copy of this project.
 * [ ] Clone your OWN version of the repository in your terminal
 * [ ] cd into the project base directory `cd web-module-project-client-auth`
-* [ ] Download project dependencies by running `npm install`
-* [ ] cd into the `server` folder.
-* [ ] Start up the app using `npm start` to start the server.
 * [ ] cd into the `friends` folder.
+* [ ] Download project dependencies by running `npm install`
 * [ ] Run `npm start` to start the client code.
+* [ ] Your server code will run automatically, just as they do in sprint challenges.
 
 ### Task 2: Project Requirements
 #### Build the login component
