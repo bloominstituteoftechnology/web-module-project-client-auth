@@ -11,7 +11,7 @@ This module explored the clients-side authentication using auth-tokens. During t
 In this project, you will connect to a local server with endpoints allowing you to work with interact with data from the cast of Friends. Using this data as a 
 base, you will build functioning login, display and add component pages to your application.
 
-The included API holds a list of friends and lets you add, edit, or remove friends from that list. All of the API endpoints (except the login endpoint) are considered "protected", meaning you have to make the request with an authentication token in the header or the API will send back a `401` error. 
+The included API holds a list of friends and lets you add, edit, or remove friends from that list. All of the API endpoints (except the login endpoint) are considered "protected", meaning you have to make the request with an authentication token in the header or the API will send back a `401` error. Take a look at the endpoints that our API has to offer in `http://localhost:9000`.
 
   * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'Bloom', password: 'Tech' }`
   * **[POST]** * to `/api/logout`: removes a token from active use. Returns the inactive token. 
@@ -74,3 +74,9 @@ Each friend object has the format:
 - [ ] Add in a modularized way to access protected endpoints using axiosWithAuth.
 - [ ] Add in a protected page and route that allows shows an information friends information. Use url params to get the id for this friend.
 - [ ] Style as you wish.
+
+### Submission Format
+- [ ] If this is your first time connecting a submission, authorize your github account within the codegrade assignment.
+- [ ] Connect your fork to Codegrade using the "Connect Git" button.
+- [ ] Find your newly created fork from the list and push your work to main.
+- [ ] Check this video for details: www.youtube.com/watch?v=fC2BO7dI6IQ
