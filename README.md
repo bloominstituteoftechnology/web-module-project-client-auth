@@ -37,7 +37,6 @@ Each friend object has the format:
 * [ ] Create a forked copy of this project.
 * [ ] Clone your OWN version of the repository in your terminal
 * [ ] cd into the project base directory `cd web-module-project-client-auth`
-* [ ] cd into the `friends` folder.
 * [ ] Download project dependencies by running `npm install`
 * [ ] Run `npm start` to start the client code.
 * [ ] Your server code will run automatically, just as they do in sprint challenges.
