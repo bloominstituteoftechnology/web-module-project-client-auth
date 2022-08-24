@@ -1,4 +1,12 @@
-const { nanoid } = require("nanoid")
+const nanoid = (n) => {
+  const chars = 'abcdefghijklmnopqrstuvwxyz'
+  let result = ''
+  for (let i = 0; i < n; i++) {
+    result += chars[Math.floor(Math.random() * 26)]
+  }
+  return result
+}
+
 const moment = require("moment")
 
 let data;
@@ -56,7 +64,7 @@ const getById = id => {
 }
 
 const create = item => {
-  data.push({ id: nanoid(5), createdAt:moment().format(), ...item })
+  data.push({ id: nanoid(5), createdAt: moment().format(), ...item })
   return data
 }
 
