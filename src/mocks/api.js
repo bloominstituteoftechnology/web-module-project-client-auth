@@ -36,7 +36,7 @@ api.post('/api/login', (req, res) => {
 
 })
 
-api.post('/api/logout', authenticator, (req, res) => {
+api.post('/api/logout',authenticator,  (req, res) => {
   const {username, role, token}  = credentials;
   res.json({
     username,
@@ -45,7 +45,7 @@ api.post('/api/logout', authenticator, (req, res) => {
   })
 })
 
-api.get('/api/friends', authenticator, (req, res) => {
+api.get('/api/friends', authenticator,(req, res) => {
   res.json(Data.getAll())
 })
 
