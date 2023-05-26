@@ -14,19 +14,39 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 30vh;
+  background-color: white;
+  min-height: 10vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: 20px;
-  color: white;
+  border-bottom: solid;
 }
 
 .App-link {
-  color: #61dafb;
-  padding: 1em;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 20px;
+  background-color: #282c34;
+  margin: 5px;
+}
+
+.Link-container {
+  justify-content: flex-end;
+}
+
+form{
+  width:100%;
+}
+
+.Submit-button{
+  
+}
+
+.Login-comp{
+
 }
 
 @keyframes App-logo-spin {
@@ -37,3 +57,8 @@
     transform: rotate(360deg);
   }
 }
+
+.Friends {
+  text-align: left;
+}
+
