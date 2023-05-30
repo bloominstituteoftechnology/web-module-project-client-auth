@@ -1,5 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+/* APP */
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -13,6 +17,8 @@
   }
 }
 
+
+
 .App-header {
   background-color: white;
   min-height: 10vh;
@@ -23,7 +29,6 @@
   font-size: 20px;
   border-bottom: solid;
 }
-
 .App-link {
   color: white;
   text-decoration: none;
@@ -33,21 +38,58 @@
   margin: 5px;
 }
 
-.Link-container {
-  justify-content: flex-end;
-}
-
-form{
+/* login */
+input{
+  background-color: #282c34;
   width:100%;
+  height: 5vh;
+  color:white;
 }
 
-.Submit-button{
-  
+@media (max-width: 863px) {
+  .App-header{
+    color:pink;
+    font-size: 15px;
+    /* justify-content: start; */
+  }
+  .App-link{
+    padding: 15px;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 701px) {
+  .App-header{
+    color:green;
+    font-size: 15px;
+    /* flex-direction: column; */
+  }
+  .App-link{
+    padding: 15px;
+    justify-content: space-around;
+  }
+  form{
+    font-size: 15px;
+  }
+  h1{
+    font-size:25px;
+  }
+  h2{
+    font-size:20px;
+  }
+  input{
+    height:3vh
+  }
+}
+  @media (max-width: 643px) {
+    .App-header{
+      color:pink;
+      justify-content:space-around;
+    }
+    .App-link{
+      padding: 10px;
+    }
 }
 
-.Login-comp{
-
-}
 
 @keyframes App-logo-spin {
   from {
@@ -58,7 +100,56 @@ form{
   }
 }
 
+
+.Link-container {
+  justify-content: flex-end;
+}
+
+
+/* LOGIN */
+form{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* .Login-comp{
+  display:flex;
+} */
+
+.Login-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+label{
+  display:flex;
+  justify-content: center;
+  /* align-items: center; */
+  font-family: Lato;
+  text-transform: uppercase;
+
+}
+
+/* fix width */
+.Submit-button{
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px;
+  background-color: #282c34;
+  margin: 5px;
+  width: 20%;
+}
+
+
+
 .Friends {
   text-align: left;
 }
+
 

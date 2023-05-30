@@ -43,10 +43,11 @@ const handleSubmit= (e) =>{
 
 
 return(
-<div className="Login-comp">
+    // className="Login-comp"
+<div>
     <h1>LOGIN</h1>
     <form onSubmit={handleSubmit}>
-        <div className="Form-container">
+        <div>
             <label htmlFor='username'>Username:</label>
             <input 
                 id='username'
@@ -54,7 +55,7 @@ return(
                 onChange={handleChange}
                 />
         </div>
-        <div className="Form-container">
+        <div>
             <label htmlFor='password'>Password:</label>
             <input 
                 id='password'
@@ -63,7 +64,7 @@ return(
                 onChange={handleChange}
             />
         </div>
-        <button className="Subit-button">Submit</button>   
+        <button className="Submit-button">Submit</button>   
       </form>
 </div>
 
