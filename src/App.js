@@ -1,11 +1,44 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import React from "react";
+import "./App.css";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+
+import LoginForm from "./components/LoginForm";
+import FriendsList from "./components/FriendsList";
+import AddFriends from "./components/AddFriends";
+import Logout from "./components/Logout";
+import PrivateRoutes from "./components/PrivateRoutes";
 
 function App() {
   return (
     <div className="App">
-      <h2>Client Auth Project</h2>
+      <nav>
+        <Link className="heading" to="/">
+          Friends Database
+        </Link>
+        <ul className="links">
+          <li>
+            <Link to="/">Login</Link>
+          </li>
+          <li>
+            <Link to="/friends">Friends</Link>
+          </li>
+          <li>
+            <Link to="/friends/add">Add Friends</Link>
+          </li>
+          <li>
+            <Link to="/logout/">Logout</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route element={<PrivateRoutes />}>
+          <Route path="/friends" element={<FriendsList />} />
+          <Route path="/friends/add" element={<AddFriends />} />
+        </Route>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/logout" element={<Logout />} />
+      </Routes>
     </div>
   );
 }
