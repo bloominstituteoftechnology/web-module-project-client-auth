@@ -20,15 +20,19 @@ const FriendsList = () => {
   return (
     <div>
       <h1>FRIENDS LIST</h1>
-      <ul>
-        {friends.map((friend, idx) => {
-          return (
-            <li key={idx}>
-              {friend.name}-{friend.email}
-            </li>
-          );
-        })}
-      </ul>
+      {friends === [] ? (
+        <p>Loading</p>
+      ) : (
+        <ul>
+          {friends.map((friend, idx) => {
+            return (
+              <li key={idx}>
+                {friend.name}-{friend.email}
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 };

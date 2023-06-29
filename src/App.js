@@ -6,6 +6,7 @@ import LoginForm from "./components/LoginForm";
 import FriendsList from "./components/FriendsList";
 import AddFriends from "./components/AddFriends";
 import Logout from "./components/Logout";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
