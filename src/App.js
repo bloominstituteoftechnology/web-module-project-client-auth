@@ -5,6 +5,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import FriendsList from "./components/FriendsList";
 import AddFriends from "./components/AddFriends";
+import Logout from "./components/Logout";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           <li>
             <Link to="/friends/add">Add Friends</Link>
           </li>
+          <li>
+            <Link to="/logout/">Logout</Link>
+          </li>
         </ul>
       </nav>
 
@@ -30,6 +34,7 @@ function App() {
         <Route path="/" element={<LoginForm />} />
         <Route path="/friends" element={<FriendsList />} />
         <Route path="/friends/add" element={<AddFriends />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </div>
   );

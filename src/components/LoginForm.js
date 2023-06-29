@@ -58,7 +58,6 @@ const LoginForm = () => {
           />
           <button>Submit</button>
         </div>
-        {error === "" ? null : <p className="error">{error}</p>}
       </form>
     </div>
   );
