@@ -11,6 +11,7 @@ nav {
   align-items: center;
   gap: 2 rem;
   padding: 0 1rem;
+  height: 75px;
 }
 
 nav ul {
@@ -19,4 +20,30 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 1rem;
+}
+
+ul a {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+}
+
+.heading {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+}
+
+.loginPage h1 {
+  text-align: center;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 500px;
+  text-align: center;
+  gap: 10px;
 }

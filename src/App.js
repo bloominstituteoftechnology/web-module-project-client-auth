@@ -10,7 +10,9 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <h3>Friends Database</h3>
+        <Link className="heading" to="/">
+          Friends Database
+        </Link>
         <ul className="links">
           <li>
             <Link to="/">Login</Link>
