@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AddFriends = () => {
+  const [newFriend, setNewFriend] = useState({
+    friendName: "",
+    friendEmail: "",
+  });
+
   const handleChange = (e) => {
     e.preventDefault();
+    setNewFriend({
+      ...newFriend,
+      [e.target.name]: e.target.value,
+    });
   };
   return (
     <div>
       <form>
         <div className="inputs">
           <h1>ADD FRIEND</h1>
-          <label htmlFor="friendName">FRIEND EMAIL</label>
+          <label htmlFor="friendName">FRIEND NAME</label>
           <input
             onChange={handleChange}
             type="text"
@@ -18,7 +27,7 @@ const AddFriends = () => {
           />
           <label htmlFor="friendEmail">FRIEND EMAIL</label>
           <input
-            type="friendEmail"
+            type="email"
             id="friendEmail"
             name="friendEmail"
             onChange={handleChange}
