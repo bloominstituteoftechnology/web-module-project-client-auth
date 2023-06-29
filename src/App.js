@@ -6,7 +6,7 @@ import LoginForm from "./components/LoginForm";
 import FriendsList from "./components/FriendsList";
 import AddFriends from "./components/AddFriends";
 import Logout from "./components/Logout";
-import PrivateRoute from "./components/PrivateRoute";
+import PrivateRoutes from "./components/PrivateRoutes";
 
 function App() {
   return (
@@ -32,9 +32,11 @@ function App() {
       </nav>
 
       <Routes>
+        <Route element={<PrivateRoutes />}>
+          <Route path="/friends" element={<FriendsList />} />
+          <Route path="/friends/add" element={<AddFriends />} />
+        </Route>
         <Route path="/" element={<LoginForm />} />
-        <Route path="/friends" element={<FriendsList />} />
-        <Route path="/friends/add" element={<AddFriends />} />
         <Route path="/logout" element={<Logout />} />
       </Routes>
     </div>
