@@ -38,7 +38,7 @@ const LoginForm = () => {
     navigate("/friends");
   };
   return (
-    <div className="loginPage">
+    <div className="pgDef">
       <h1>Login</h1>
       <form onSubmit={login}>
         <div className="inputs">

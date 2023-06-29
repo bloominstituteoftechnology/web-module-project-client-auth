@@ -21,7 +21,7 @@ function App() {
             <Link to="/friends">Friends</Link>
           </li>
           <li>
-            <Link to="/friends/app">Add Friends</Link>
+            <Link to="/friends/add">Add Friends</Link>
           </li>
         </ul>
       </nav>
